@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Mavela Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Mavela Regular"),
+    url("/assets/fonts/Mavela-Regular.woff") format("woff");
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Mavela Regular";
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+}
+
+.background_video,
+.video_overlay {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.video_overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.heading_container {
+  background-color: rgba(0, 0, 0, 0.24);
+  border-radius: 1rem;
+  display: grid;
+  height: 55vh;
+  left: 50%;
+  min-height: 500px;
+  min-width: 500px;
+  place-content: center;
+  place-items: center;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 55vh;
+}
+
+.heading_container > img {
+  max-height: 25vh;
+}
+
+.main_heading {
+  color: #fff;
+  font-size: 4rem;
+  max-width: 9ch;
+}

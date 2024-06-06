@@ -16,7 +16,7 @@ body {
   color: #fff;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-size: max(min(2vh, 2vw), 1rem);
+  font-size: max(min(2vh, 2vw), 0.9rem);
   font-style: normal;
   font-variation-settings: "slnt" 0;
   font-weight: normal;
@@ -37,9 +37,12 @@ main {
   align-items: center;
   background-image: url(/assets/images/bg-stripes.svg);
   background-repeat: repeat;
-  background-size: 100px;
+  background-size: 70px;
   grid-template-columns: 1fr 1fr;
   width: 100%;
+
+  /* TEMP */
+  /* opacity: 1; */
 }
 
 main,
@@ -53,23 +56,36 @@ section {
   height: 100vh;
   margin-inline: auto;
 }
+/* 
+section {
+  min-width: max(400px, 29vw);
+} */
 
 header {
   opacity: 1;
 }
 
-h1 {
+h1,
+h2 {
   font-family: "Mavela Regular";
-  font-size: 8vh;
   font-weight: normal;
   line-height: 1;
+}
+
+h1 {
+  font-size: 8vh;
   max-width: 9ch;
+}
+
+h2 {
+  margin-bottom: max(1rem, 1vh, 1vw);
 }
 
 img {
   max-width: 100%;
 }
 
+/* BACKGROUND VIDEO */
 #background_video {
   object-fit: cover;
 }
@@ -91,10 +107,11 @@ img {
     ),
     url(/assets/images/bg-stripes.svg);
   background-repeat: repeat;
-  background-size: 100px;
+  background-size: 70px;
   background-position: 0;
 }
 
+/* SECOND PAGE/SCENE */
 .heading_container {
   background-color: rgba(0, 0, 0, 0.24);
   border-radius: 1rem;
@@ -124,13 +141,13 @@ img {
   max-width: 50vw;
 }
 
+/* INTRO CONTENT */
 #intro_container {
   align-items: center;
 }
 
 #intro_text {
   gap: max(1rem, 1vh, 1vw);
-
   justify-items: end;
 }
 
@@ -143,4 +160,43 @@ img {
   border-radius: 1rem;
   max-width: 55ch;
   padding: max(2rem, 2vh, 2vw);
+}
+
+/* RESOURCE INFO */
+#resource_info {
+  align-content: center;
+  display: grid;
+}
+
+#resource_info_header {
+  background-color: rgba(0, 0, 0, 0.24);
+  border-radius: 1rem;
+  padding: max(2rem, 2vh, 2vw);
+}
+
+#resource_img {
+  display: block;
+  margin-bottom: max(1rem, 1vh, 1vw);
+  margin-left: auto;
+  max-width: max(200px, 10vw);
+  width: 100%;
+}
+
+#resource_info_desc {
+  background-color: rgba(0, 0, 0, 0.79);
+  border-radius: 1rem;
+  margin-top: max(1rem, 1vh, 1vw);
+  padding: max(2rem, 2vh, 2vw);
+  width: 43ch;
+}
+
+/* VOLUME */
+#volume {
+  display: flex;
+  gap: max(0.8rem, 0.8vh, 0.8vw);
+  margin-top: max(1rem, 1vh, 1vw);
+}
+
+#volume input {
+  width: 100%;
 }

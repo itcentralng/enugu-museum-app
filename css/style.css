@@ -11,6 +11,7 @@
 }
 
 body {
+  background-image: url(/assets/images/bg-stripes.svg);
   margin: 0;
 }
 
@@ -23,18 +24,29 @@ img {
   max-width: 100%;
 }
 
+.background_video {
+  object-fit: cover;
+}
+
 .background_video,
 .video_overlay {
   height: 100%;
   left: 0;
-  object-fit: cover;
   position: fixed;
   top: 0;
   width: 100%;
 }
 
 .video_overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url(/assets/images/bg-stripes.svg);
+  background-repeat: repeat;
+  background-size: 100px;
+  background-position: 0;
 }
 
 .heading_container {
@@ -60,6 +72,6 @@ img {
 
 .main_heading {
   color: #fff;
-  font-size: 4rem;
+  font-size: 8vh;
   max-width: 9ch;
 }

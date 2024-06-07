@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFID Status</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var socket = io.connect('http://localhost:5000');
+            socket.on('rfid_status', function(data) {
+                document.getElementById('status').innerText = 'RFID Status: ' + data.status;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 id="status">RFID Status: No card detected</h1>
+</body>
+</html>

@@ -1,6 +1,6 @@
 import re
 import os
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template
 from flask_socketio import SocketIO
 import serial
 import threading
@@ -25,21 +25,14 @@ def read_from_serial():
             serialValue = ser.readline().decode("utf-8").strip()
             # Check if the serialValue matches the UID pattern
             if uid_pattern.match(serialValue):
-                print(f"UID detected: {serialValue}")
                 socketio.emit("rfid_status", {"status": f"{serialValue}"})
             elif "Card removed" in serialValue:
-                print("removed")
                 socketio.emit("rfid_status", {"status": "removed"})
 
 
 @app.route("/")
 def main():
     return render_template("index.html")
-
-
-# @app.route('/')
-# def index():
-#     return send_from_directory('', 'index.html')
 
 if __name__ == "__main__":
     # Run the serial reading in a separate thread

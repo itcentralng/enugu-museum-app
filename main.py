@@ -1,15 +1,19 @@
 import re
+import os
 from flask import Flask, render_template, send_from_directory
 from flask_socketio import SocketIO
 import serial
 import threading
+
+import dotenv
+dotenv.load_dotenv()
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "secret!"
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Configure the serial port
-ser = serial.Serial(port="COM4", baudrate=9600)
+ser = serial.Serial(port=os.getenv('SERIAL_PORT'), baudrate=9600)
 
 
 def read_from_serial():
@@ -43,4 +47,4 @@ if __name__ == "__main__":
     serial_thread.daemon = True
     serial_thread.start()
     # Start the Flask app with WebSocket support
-    socketio.run(app, host="0.0.0.0", port=5000)
+    socketio.run(app, host="0.0.0.0", port=5550)

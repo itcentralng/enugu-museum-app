@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   loopBG();
 
   // SOCKET IO CONNECTION - HANDLE RESOURCE PICKUP
-  var socket = io.connect("http://localhost:5000");
+  var socket = io.connect("http://127.0.0.1:5550");
   socket.on("rfid_status", function (data) {
     if (data.status != "removed") {
       RFID = data.status;

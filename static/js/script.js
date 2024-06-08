@@ -96,21 +96,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const showResource = () => {
     const tl2 = gsap.timeline();
     const resource = enuguResources.find((r) => r.id == RFID);
+    if (resource) {
+      tl2.set("#map", { x: 0 });
+      tl2.to("#map", { opacity: 1, duration: 0.3 });
+      tl2.to("#resource_info", { opacity: 1 });
+      playAudio(resource.audio);
 
-    tl2.set("#map", { x: 0 });
-    tl2.to("#map", { opacity: 1, duration: 0.3 });
-    tl2.to("#resource_info", { opacity: 1 });
-    playAudio(resource.audio);
+      addResourceHtml(resource);
 
-    addResourceHtml(resource);
-
-    for (let location of resource.locations) {
-      highlightArea(location.name);
-      if (location.description) {
-        tl2.to("#map", { x: window.innerWidth / 2 - 450, delay: 15 });
-        tl2.to("#resource_info", { opacity: 0 });
-        showAdditionalInfo(location.name, location.description, 1);
-        tl2.to("#other_info", { opacity: 1 });
+      for (let location of resource.locations) {
+        highlightArea(location.name);
+        if (location.description) {
+          tl2.to("#map", { x: window.innerWidth / 2 - 450, delay: 15 });
+          tl2.to("#resource_info", { opacity: 0 });
+          showAdditionalInfo(location.name, location.description, 1);
+          tl2.to("#other_info", { opacity: 1 });
+        }
       }
     }
   };
@@ -145,11 +146,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
   socket.on("rfid_status", function (data) {
     if (data.status != "removed") {
       RFID = data.status;
-      hideVideo();
-      showResource();
+      const resource = enuguResources.find((r) => r.id == RFID);
+      if (resource) {
+        hideVideo();
+        showResource();
+      }
     } else {
-      showVideo();
-      hideResource();
+      const resource = enuguResources.find((r) => r.id == RFID);
+      if (resource) {
+        showVideo();
+        hideResource();
+      }
     }
   });
 });

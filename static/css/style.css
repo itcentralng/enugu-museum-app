@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: normal;
   src: local("Mavela Regular"),
-    url("/assets/fonts/Mavela-Regular.woff") format("woff");
+    url("/static/assets/fonts/Mavela-Regular.woff") format("woff");
 }
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
@@ -25,24 +25,23 @@ body {
   min-height: 100vh;
 }
 
-body > * {
-  left: 0;
-  opacity: 0;
-  position: fixed;
+section {
+  position: absolute;
   top: 0;
+  width: 100%;
 }
 
 main {
   align-content: center;
   align-items: center;
-  background-image: url(/assets/images/bg-stripes.svg);
+  background-image: url(/static/assets/images/bg-stripes.svg);
   background-repeat: repeat;
   background-size: 70px;
   grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  position: fixed;
+  top: 0;
   width: 100%;
-
-  /* TEMP */
-  /* opacity: 1; */
 }
 
 main,
@@ -55,14 +54,6 @@ header,
 section {
   height: 100vh;
   margin-inline: auto;
-}
-/* 
-section {
-  min-width: max(400px, 29vw);
-} */
-
-header {
-  opacity: 1;
 }
 
 h1,
@@ -105,7 +96,7 @@ img {
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url(/assets/images/bg-stripes.svg);
+    url(/static/assets/images/bg-stripes.svg);
   background-repeat: repeat;
   background-size: 70px;
   background-position: 0;
@@ -137,13 +128,15 @@ img {
 }
 
 #map svg {
-  max-height: 90vh;
-  max-width: 50vw;
+  max-height: 100vh;
+  max-width: 60vw;
+  width: 60vw;
 }
 
 /* INTRO CONTENT */
 #intro_container {
   align-items: center;
+  right: 3rem;
 }
 
 #intro_text {
@@ -166,12 +159,18 @@ img {
 #resource_info {
   align-content: center;
   display: grid;
+  justify-items: end;
+}
+
+#resource_info > div {
+  margin-right: 3rem;
 }
 
 #resource_info_header {
   background-color: rgba(0, 0, 0, 0.24);
   border-radius: 1rem;
   padding: max(2rem, 2vh, 2vw);
+  width: 43ch;
 }
 
 #resource_img {
@@ -199,4 +198,24 @@ img {
 
 #volume input {
   width: 100%;
+}
+
+/* RESOURCE INFO CARDS */
+.info_card {
+  background-color: rgba(0, 0, 0, 0.79);
+  border-radius: 1rem;
+  margin-top: max(1rem, 1vh, 1vw);
+  padding: max(2rem, 2vh, 2vw);
+  position: absolute;
+  width: 43ch;
+}
+
+#info_card1 {
+  bottom: 3rem;
+  right: 3rem;
+}
+
+#info_card2 {
+  left: 3rem;
+  top: 3rem;
 }

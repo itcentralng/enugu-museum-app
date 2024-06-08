@@ -19,56 +19,95 @@ const enuguLGAs = [
 
 const enuguResources = [
   {
-    id: "coal",
+    id: "0xB3 0xA5 0x57 0xF6",
     name: "Coal",
-    lgas: ["Enugu North", "Enugu South", "Udi", "Ezeagu"],
-    image: "https://example.com/images/coal.jpg",
+    lgas: [
+      {
+        name: "Enugu North",
+        description:
+          "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+      },
+      {
+        name: "Enugu South",
+        description:
+          "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+      },
+      {
+        name: "Udi",
+        description:
+          "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+      },
+      {
+        name: "Ezeagu",
+        description:
+          "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+      },
+    ],
+    image: "/static/assets/images/resources/quartz.png",
     description:
-      "Coal is a major resource found in Enugu, known for its high quality and extensive deposits.",
-    dateDiscovered: "1909-11-18",
+      "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+    date: "(February 11, 1847 – October 18, 1931)",
   },
   {
-    id: "limestone",
+    id: "0x03 0x6D 0x75 0xC5",
     name: "Limestone",
     lgas: ["Udi", "Nsukka", "Oji River"],
-    image: "https://example.com/images/limestone.jpg",
+    lgas: [
+      {
+        name: "Udi",
+        description:
+          "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+      },
+      {
+        name: "Nsukka",
+        description:
+          "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+      },
+      {
+        name: "Oji River",
+        description:
+          "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+      },
+    ],
+    image: "/static/assets/images/resources/quartz.png",
     description:
-      "Limestone deposits in Enugu are used for cement production and other industrial purposes.",
-    dateDiscovered: "1960-05-14",
+      "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+    date: "1960-05-14",
   },
   {
     id: "gypsum",
     name: "Gypsum",
     lgas: ["Awgu"],
-    image: "https://example.com/images/gypsum.jpg",
+    image: "/static/assets/images/resources/quartz.png",
     description:
-      "Gypsum is used in the production of plaster and other building materials.",
-    dateDiscovered: "1982-03-23",
+      "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+    date: "1982-03-23",
   },
   {
     id: "clay",
     name: "Clay",
     lgas: ["Nsukka", "Isi Uzo", "Nkanu East"],
-    image: "https://example.com/images/clay.jpg",
+    image: "/static/assets/images/resources/quartz.png",
     description:
-      "Clay deposits in Enugu are utilized for pottery and ceramics.",
-    dateDiscovered: "1978-09-15",
+      "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+    date: "1978-09-15",
   },
   {
     id: "ironOre",
     name: "Iron Ore",
     lgas: ["Uzo-Uwani"],
-    image: "https://example.com/images/iron_ore.jpg",
+    image: "/static/assets/images/resources/quartz.png",
     description:
-      "Iron ore deposits are important for steel production and industrial development.",
-    dateDiscovered: "1991-07-30",
+      "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+    date: "1991-07-30",
   },
   {
     id: "granite",
     name: "Granite",
     lgas: ["Aninri", "Udi"],
-    image: "https://example.com/images/granite.jpg",
-    description: "Granite is used for construction and architectural purposes.",
-    dateDiscovered: "1970-02-11",
+    image: "/static/assets/images/resources/quartz.png",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl pellentesque sit. Sed egestas non interdum praesent purus. Ac convallis aliquet tellus enim tortor orci tincidunt. Condimentum ac mauris orci facilisi elementum. Blandit nam egestas ipsum sapien. Non condimentum posuere amet enim mattis tincidunt ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae urn",
+    date: "1970-02-11",
   },
 ];

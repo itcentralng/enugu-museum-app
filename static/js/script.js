@@ -18,10 +18,11 @@ const highlightArea = (area) => {
   foundArea.setAttribute("fill", getRandomHSLColor());
 };
 
-const videoPlayer = document.getElementById("background_video");
-const replayVideo = () => {
-  videoPlayer.load();
+const gifPlayer = document.getElementById("background_gif");
+const replayGIF = () => {
+  gifPlayer.src = "/static/assets/videos/map-video1.gif";
 };
+replayGIF();
 
 const audioPlayer = document.getElementById("audioPlayer");
 const button = document.getElementById("button");
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const tl = gsap.timeline({
     repeat: -1,
     repeatDelay: 15,
-    onRepeat: replayVideo,
+    onRepeat: replayGIF,
   });
 
   const hideVideo = () => {
@@ -81,7 +82,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   const showVideo = () => {
     tl.restart();
-    replayVideo();
     gsap.to("header", { opacity: 1 });
   };
 
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     tl.fromTo("header", { opacity: 1 }, { opacity: 0, delay: 5 });
     tl.to("#map", { opacity: 1 });
     tl.fromTo("#intro_container", { opacity: 0 }, { opacity: 1 });
-    tl.fromTo(".descrition", { opacity: 0 }, { opacity: 1, delay: 0.5 });
+    tl.fromTo(".descrition", { opacity: 0 }, { opacity: 1 });
   };
   loopBG();
 

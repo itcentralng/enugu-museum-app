@@ -6,21 +6,62 @@ function getRandomHSLColor() {
 }
 
 const clearHightligthing = (area) => {
-  area = area.toLowerCase().replace(" ", "-");
+  area = area.toLowerCase().replaceAll(" ", "-");
   const foundArea = document.getElementById(area);
   foundArea.setAttribute("fill", "rgba(217, 217, 217, 1)");
-  console.log(foundArea);
 };
 
 const highlightArea = (area) => {
-  area = area.toLowerCase().replace(" ", "-");
+  area = area.toLowerCase().replaceAll(" ", "-");
   const foundArea = document.getElementById(area);
+  if (!foundArea) console.log(area, foundArea);
   foundArea.setAttribute("fill", getRandomHSLColor());
 };
 
 const videoPlayer = document.getElementById("background_video");
 const replayVideo = () => {
   videoPlayer.load();
+};
+
+const audioPlayer = document.getElementById("audioPlayer");
+const button = document.getElementById("button");
+
+const allowPlayAudio = () => {
+  button.remove();
+};
+
+const playAudio = (src) => {
+  audioPlayer.src = src;
+  audioPlayer.load();
+  audioPlayer.play();
+};
+
+const stopAudio = () => {
+  audioPlayer.pause();
+  audioPlayer.load();
+};
+
+const addResourceHtml = (resource) => {
+  const html = `<div>
+          <div id="resource_info_header">
+            <img
+              id="resource_img"
+              src="${resource.image}"
+              alt=""
+            />
+            <h2 id="resource_name">${resource.name}</h2>
+          </div>
+          <div id="resource_info_desc">
+            <h2>About ${resource.name}</h2>
+            <p>${resource.description}</p>
+            </div>
+            </div>`;
+  // <div id="volume">
+  //   <i class="fa fa-volume-high"></i>
+  //   <input type="range" name="" id="" />
+  // </div>
+
+  document.getElementById("resource_info").innerHTML = html;
 };
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -54,21 +95,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   const showResource = () => {
     const tl2 = gsap.timeline();
+    const resource = enuguResources.find((r) => r.id == RFID);
+
     tl2.set("#map", { x: 0 });
     tl2.to("#map", { opacity: 1, duration: 0.3 });
     tl2.to("#resource_info", { opacity: 1 });
+    playAudio(resource.audio);
 
-    tl2.to("#map", { x: window.innerWidth / 2 - 450, delay: 15 });
-    tl2.to("#resource_info", { opacity: 0 });
+    addResourceHtml(resource);
 
-    const resource = enuguResources.find((r) => r.id == RFID);
-
-    highlightArea(resource.lgas[0].name);
-    showAdditionalInfo(resource.lgas[0].name, resource.lgas[0].description, 1);
-    highlightArea(resource.lgas[1].name);
-    showAdditionalInfo(resource.lgas[1].name, resource.lgas[1].description, 2);
-
-    tl2.to("#other_info", { opacity: 1 });
+    for (let location of resource.locations) {
+      highlightArea(location.name);
+      if (location.description) {
+        tl2.to("#map", { x: window.innerWidth / 2 - 450, delay: 15 });
+        tl2.to("#resource_info", { opacity: 0 });
+        showAdditionalInfo(location.name, location.description, 1);
+        tl2.to("#other_info", { opacity: 1 });
+      }
+    }
   };
   const hideResource = () => {
     gsap.to("#map", { opacity: 0 });
@@ -77,9 +121,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.set("#map", { x: 0 });
 
     const resource = enuguResources.find((r) => r.id == RFID);
+    stopAudio();
 
-    clearHightligthing(resource.lgas[0].name);
-    clearHightligthing(resource.lgas[1].name);
+    for (let location of resource.locations) {
+      highlightArea(location.name);
+      clearHightligthing(location.name);
+    }
   };
 
   // HIDE ALL SECTIONS

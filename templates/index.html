@@ -9,6 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
   </head>
   <body>
+    <button id="button" onclick="allowPlayAudio()">Allow audio</button>
+
     <header>
       <div>
         <video
@@ -503,36 +505,8 @@
         </div>
       </section>
 
-      <section id="resource_info">
-        <div>
-          <div id="resource_info_header">
-            <img
-              id="resource_img"
-              src="/static/assets/images/resources/quartz.png"
-              alt=""
-            />
-            <h2 id="resource_name">Glass Sand</h2>
-            <p id="resource_dates">(February 11, 1847 – October 18, 1931)</p>
-          </div>
-          <div id="resource_info_desc">
-            <h2>About Glass Sand</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur. Amet non ornare vitae nisl
-              pellentesque sit. Sed egestas non interdum praesent purus. Ac
-              convallis aliquet tellus enim tortor orci tincidunt. Condimentum
-              ac mauris orci facilisi elementum. Blandit nam egestas ipsum
-              sapien. Non condimentum posuere amet enim mattis tincidunt
-              ultrices. Nunc duis turpis nibh nibh. Gravida tortor nulla vitae
-              urna dignissim malesuada nunc. At mi quisque vitae ante
-              vestibulum. Rhoncus nunc quis maecenas mollis consequat.
-            </p>
-            <div id="volume">
-              <i class="fa fa-volume-high"></i>
-              <input type="range" name="" id="" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <section id="resource_info"></section>
+      <audio id="audioPlayer" src="" hidden></audio>
 
       <section id="other_info">
         <div id="info_card1" class="info_card">

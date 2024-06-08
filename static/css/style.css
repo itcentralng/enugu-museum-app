@@ -76,6 +76,21 @@ img {
   max-width: 100%;
 }
 
+/* ALLOW AUDIO BUTTON */
+#button {
+  background-color: tomato;
+  border-color: transparent;
+  border-radius: 50%;
+  display: block;
+  height: 100px;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  z-index: 1000;
+}
+
 /* BACKGROUND VIDEO */
 #background_video {
   object-fit: cover;

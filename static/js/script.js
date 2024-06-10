@@ -18,11 +18,11 @@ const highlightArea = (area) => {
   foundArea.setAttribute("fill", getRandomHSLColor());
 };
 
-const gifPlayer = document.getElementById("background_gif");
-const replayGIF = () => {
-  gifPlayer.src = "/static/assets/videos/map-video1.gif";
+const videoPlayer = document.getElementById("background_video");
+const replayVideo = () => {
+  videoPlayer.load();
 };
-replayGIF();
+replayVideo();
 
 const audioPlayer = document.getElementById("audioPlayer");
 const button = document.getElementById("button");
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const tl = gsap.timeline({
     repeat: -1,
     repeatDelay: 15,
-    onRepeat: replayGIF,
+    onRepeat: replayVideo,
   });
 
   const hideVideo = () => {
@@ -144,6 +144,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // SOCKET IO CONNECTION - HANDLE RESOURCE PICKUP
   var socket = io.connect("http://127.0.0.1:5550");
   socket.on("rfid_status", function (data) {
+    console.log(data);
     if (data.status != "removed") {
       RFID = data.status;
       const resource = enuguResources.find((r) => r.id == RFID);

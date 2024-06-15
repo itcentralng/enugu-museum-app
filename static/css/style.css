@@ -1,79 +1,23 @@
-@font-face {
-  font-family: "Mavela Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Mavela Regular"),
-    url("/static/assets/fonts/Mavela-Regular.woff") format("woff");
-}
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
+:root {
+  --border-radius: 0.75rem;
+  --card-padding: 2rem;
+  --primary-color: brown;
+}
+/* Ensure the body and html elements take full height */
 * {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
+html,
 body {
-  background: rgba(16, 46, 77, 1);
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-size: max(min(2vh, 2vw), 0.9rem);
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings: "slnt" 0;
-  font-weight: normal;
-  line-height: 1.618;
-  margin: 0;
-  min-height: 100vh;
-}
-
-section {
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-main {
-  align-content: center;
-  align-items: center;
-  background-image: url(/static/assets/images/bg-stripes.svg);
-  background-repeat: repeat;
-  background-size: 70px;
-  grid-template-columns: 1fr 1fr;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-main,
-#intro_container,
-#intro_text {
-  display: grid;
-}
-
-header,
-section {
-  height: 100vh;
-  margin-inline: auto;
-}
-
-h1,
-h2 {
-  font-family: "Mavela Regular";
-  font-weight: normal;
-  line-height: 1;
-}
-
-h1 {
-  font-size: 8vh;
-  max-width: 9ch;
-}
-
-h2 {
-  margin-bottom: max(1rem, 1vh, 1vw);
-}
-
-img {
-  max-width: 100%;
+  height: 100%;
 }
 
 /* ALLOW AUDIO BUTTON */
@@ -95,154 +39,125 @@ img {
   z-index: 1000;
 }
 
-/* BACKGROUND VIDEO */
-#background_gif {
-  height: 100%;
+#banner {
+  background-color: #fff;
+  clip-path: polygon(
+    0% 20%,
+    20% 0%,
+    80% 0%,
+    100% 20%,
+    100% 80%,
+    80% 100%,
+    20% 100%,
+    0% 80%
+  );
   left: 50%;
+  padding: 1rem;
   position: fixed;
-  top: 0;
+  top: 3%;
   transform: translateX(-50%);
+  z-index: 100;
 }
 
-#background_video {
-  object-fit: cover;
+/* Set the size of the map */
+#map {
+  height: 120%;
+  left: -10%;
+  position: fixed;
+  transition: 0.3s;
+  top: -10%;
+  transform: translate(0%, 0%);
+  width: 120%;
 }
 
-#background_video,
-.video_overlay {
+/* Custom overlay style */
+.svg-overlay {
+  position: absolute;
+}
+
+path {
+  fill: transparent;
+  stroke-opacity: 0;
+  transition: 0.4s;
+}
+
+.active {
+  fill: var(--primary-color);
+  stroke-opacity: 1;
+  stroke: #fff;
+}
+.active + text {
+  fill: #000 !important;
+}
+
+text {
+  fill: transparent !important;
+}
+
+/* SIDE BAR */
+#sidebar,
+#sidebar .content {
+  display: flex;
+}
+
+#sidebar {
+  --width: 300px;
+  --padding: 4rem;
+
+  align-items: end;
+  background-color: var(--primary-color);
+  color: #fff;
   height: 100%;
   left: 0;
+  padding: var(--padding);
   position: fixed;
   top: 0;
-  width: 100%;
+  transform: translateX(-100%);
+  width: var(--width);
 }
 
-.video_overlay {
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
-    ),
-    url(/static/assets/images/bg-stripes.svg);
-  background-repeat: repeat;
-  background-size: 70px;
-  background-position: 0;
-}
-
-/* SECOND PAGE/SCENE */
-.heading_container {
-  background-color: rgba(0, 0, 0, 0.24);
-  border-radius: 1rem;
-  display: grid;
-  height: 55vh;
-  left: 50%;
-  min-height: 500px;
-  min-width: 500px;
-  place-content: center;
-  place-items: center;
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 55vh;
-}
-.heading_container img {
-  max-height: 35vh;
-}
-
-.main_heading {
-  color: #fff;
-}
-
-#map svg {
-  max-height: 100vh;
-  max-width: 60vw;
-  width: 60vw;
-}
-
-/* INTRO CONTENT */
-#intro_container {
-  align-items: center;
-  right: 3rem;
-}
-
-#intro_text {
-  gap: max(1rem, 1vh, 1vw);
-  justify-items: end;
-}
-
-#intro_text .title {
-  text-align: right;
-}
-
-#intro_text .descrition {
-  background-color: rgba(0, 0, 0, 0.24);
-  border-radius: 1rem;
-  max-width: 55ch;
-  padding: max(2rem, 2vh, 2vw);
+#sidebar .content {
+  align-items: start;
+  flex-direction: column;
+  font-size: 1.5em;
+  gap: 1rem;
+  height: calc(var(--width) - var(--padding) * 2);
+  justify-content: end;
+  transform: rotate(-90deg) translate(-50%, 50%); /* Translate to counter rotation effect */
+  transform-origin: left;
+  width: var(--width);
 }
 
 /* RESOURCE INFO */
-#resource_info {
-  align-content: center;
-  display: grid;
-  justify-items: end;
-}
-
-#resource_info > div {
-  margin-right: 3rem;
-}
-
-#resource_info_header {
-  background-color: rgba(0, 0, 0, 0.24);
-  border-radius: 1rem;
-  padding: max(2rem, 2vh, 2vw);
-  width: 43ch;
-}
-
-#resource_img {
-  display: block;
-  margin-bottom: max(1rem, 1vh, 1vw);
-  margin-left: auto;
-  max-width: max(200px, 10vw);
-  width: 100%;
-}
-
-#resource_info_desc {
-  background-color: rgba(0, 0, 0, 0.79);
-  border-radius: 1rem;
-  margin-top: max(1rem, 1vh, 1vw);
-  padding: max(2rem, 2vh, 2vw);
-  width: 43ch;
-}
-
-/* VOLUME */
-#volume {
-  display: flex;
-  gap: max(0.8rem, 0.8vh, 0.8vw);
-  margin-top: max(1rem, 1vh, 1vw);
-}
-
-#volume input {
-  width: 100%;
-}
-
-/* RESOURCE INFO CARDS */
 .info_card {
-  background-color: rgba(0, 0, 0, 0.79);
-  border-radius: 1rem;
-  margin-top: max(1rem, 1vh, 1vw);
-  padding: max(2rem, 2vh, 2vw);
-  position: absolute;
-  width: 43ch;
+  --width: 38ch;
+
+  align-items: center;
+  background-image: url(/static/assets/images/card-bg.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: var(--border-radius);
+  display: flex;
+  font-size: 1.3em;
+  height: calc(var(--card-padding) * 2 + var(--width));
+  justify-content: center;
+  left: 2.5%;
+  opacity: 0;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-80%);
+  width: var(--width);
 }
 
-#info_card1 {
-  bottom: 3rem;
-  right: 3rem;
+.info_card .card_bg path {
+  fill: #fff !important;
 }
 
-#info_card2 {
-  left: 3rem;
-  top: 3rem;
+.info_card .content {
+  max-width: 25ch;
+}
+
+#info-2 {
+  transform: translate(80%, -20%);
 }

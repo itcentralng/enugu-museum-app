@@ -6,6 +6,7 @@ import serial
 import threading
 
 import dotenv
+
 dotenv.load_dotenv()
 
 app = Flask(__name__)
@@ -13,7 +14,7 @@ app.config["SECRET_KEY"] = "secret!"
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Configure the serial port
-ser = serial.Serial(port=os.getenv('SERIAL_PORT'), baudrate=9600)
+ser = serial.Serial(port=os.getenv("SERIAL_PORT"), baudrate=9600)
 
 
 def read_from_serial():
@@ -23,6 +24,7 @@ def read_from_serial():
     while True:
         if ser.in_waiting > 0:
             serialValue = ser.readline().decode("utf-8").strip()
+            print(serialValue)
             # Check if the serialValue matches the UID pattern
             if uid_pattern.match(serialValue):
                 socketio.emit("rfid_status", {"status": f"{serialValue}"})
@@ -33,6 +35,7 @@ def read_from_serial():
 @app.route("/")
 def main():
     return render_template("index.html")
+
 
 if __name__ == "__main__":
     # Run the serial reading in a separate thread

@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(coords);
 
     // Apply the zoom and pan transformation
-    interactionTimeline.to(map, {
+    gsap.to(map, {
       duration: animationDuration["zoom"],
       scale: coords.zoom,
       x: -coords.x,
@@ -161,16 +161,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Show side bar
   const revealSidebar = (resource) => {
+    const tl = gsap.timeline();
     sidebar.innerHTML = `<div class="content">
         <h1>${resource.name}</h1>
         <p>${resource.name}</p>
       </div>`;
-    interactionTimeline.to(sidebar, {
+    tl.to(sidebar, {
       x: 0,
       delay: 0.5,
       duration: animationDuration["sidebar"],
     });
-    interactionTimeline.to(sidebar, {
+    tl.to(sidebar, {
       x: "-100%",
       delay: 3,
     });
@@ -184,21 +185,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Extra info cards
   const showExtraInfo = (resource) => {
+    const tl = gsap.timeline();
+
     const textParts = splitTextIntoSentences(resource.description, 230);
     const info1 = document.getElementById("info-1");
     info1.innerHTML = `<div class="content"><p>${textParts[0]}</p></div>`;
-    interactionTimeline.fromTo(info1, { opacity: 0 }, { opacity: 1 });
+    tl.fromTo(info1, { opacity: 0 }, { opacity: 1, delay: 4.5 });
 
     if (textParts[1]) {
       const info2 = document.getElementById("info-2");
       info2.innerHTML = `<div class="content"><p>${textParts[1]}</p></div>`;
-      interactionTimeline.fromTo(info2, { opacity: 0 }, { opacity: 1 });
+      tl.fromTo(info2, { opacity: 0 }, { opacity: 1 });
     }
   };
 
   const hideExtraInfo = () => {
+    const tl = gsap.timeline();
+
     Array.from(document.body.querySelectorAll(".info_card")).forEach((card) =>
-      gsap.to(card, { opacity: 0 })
+      tl.to(card, { opacity: 0 })
     );
   };
 

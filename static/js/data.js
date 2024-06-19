@@ -3,13 +3,20 @@ const enuguResources = [
     id: "0x03 0x6D 0x75 0xC5",
     image: "/static/assets/images/resources/glass-sand.png",
     audio: "/static/assets/audios/glass-sand.mp3",
-    name: "Glass Sand",
+    name: "Sandstone",
     locations: [
       { name: "Enugu South", description: "" },
       { name: "Nkanu West", description: "" },
     ],
-    description:
-      "Enugu has a lot of sand deposits which run into millions of tonnes at Nyaba river, Ajali Sandstone, Owelli Sandstone, and Agbani Sandstone deposits. The glass sand is hosted in the river beds of Nyaba at Akwuke village. The primary use of glass sand is in the manufacture of glass. It is also used in construction, particularly for building and road construction. The main component of glass sand is silicon dioxide (SiO2).",
+    description: [
+      "Enugu has a lot of sand deposits which run into millions of tonnes at Nyaba river, Ajali Sandstone, Owelli Sandstone, and Agbani Sandstone deposits. The glass sand is hosted in the river beds of Nyaba at Akwuke village.",
+      "The primary use of glass sand is in the manufacture of glass. It is also used in construction, particularly for building and road construction. The main component of glass sand is silicon dioxide (SiO2).",
+    ],
+    uses: [
+      "Sandstone is used as a building material and for making aggregates",
+      "It is also used in the production of glass and as a foundry sand.",
+    ],
+    economics: [],
   },
   {
     id: "0xE3 0x23 0xCD 0x0C",
@@ -19,13 +26,27 @@ const enuguResources = [
     locations: [
       { name: "Enugu North", description: "" },
       { name: "Ezeagu", description: "" },
-      { name: "Igbo eze North", description: "" },
+      { name: "Igbo Eze North", description: "" },
       { name: "Nsukka", description: "" },
       { name: "Oji River", description: "" },
       { name: "Udi", description: "" },
     ],
-    description:
-      "Enugu is historically known as the 'Coal City' due to its extensive coal reserves. The major coal deposits are found in the Mamu and Nsukka Formations, with estimated reserves exceeding 350 million tonnes. Coal is primarily used for power generation, cement manufacturing, and as a fuel for various industrial processes. The main chemical composition of coal includes carbon (C), hydrogen (H), sulfur (S), oxygen (O), and nitrogen (N).",
+    description: [
+      "Coal was discovered in Enugu in 1909, marking a significant turning point in the state's economic history. This discovery was made by a British geological exploration team led by Albert Kitson, who played a crucial role in identifying Enugu as a rich coal-bearing area. Kitson's exploration efforts were part of a broader initiative by the British colonial administration to find valuable mineral resources that could support industrial activities in Nigeria and the British Empire.",
+      "Albert Ernest Kitson, a renowned British geologist and explorer, led the team that discovered coal in Enugu. Kitson's work in Enugu not only led to the identification of substantial coal deposits but also laid the foundation for the establishment of Nigeria's coal mining industry. His contributions were instrumental in transforming Enugu into a significant mining hub, earning it the nickname 'Coal City.",
+      "Enugu State has estimated reserve of coal in excess of 5 billion metric tons.",
+    ],
+    uses: [
+      "Energy Production: Coal is a major source of fuel for thermal power stations. It is burned to produce steam, which drives turbines to generate electricity. This use is crucial for meeting the energy demands of industrial, commercial, and residential sectors.",
+      "Steel Manufacturing: Coal is an essential component in steel production. It is used in blast furnaces to produce coke, which serves as both a fuel and a reducing agent in the smelting of iron ore to produce steel. This process is fundamental to the construction and manufacturing industries.",
+      "Cement Production: In the cement industry, coal is used as a fuel source in kilns to produce the high temperatures needed to convert raw materials into clinker, the main ingredient in cement. This application supports the construction sector by providing a key building material.",
+    ],
+    economics: [
+      "Revenue Generation: The coal industry is a significant source of revenue for Enugu State. The state benefits financially through mining leases, royalties, and taxes imposed on mining activities. These funds are essential for public projects and services, including infrastructure development, healthcare, and education.",
+      "Employment Creation: Coal mining operations create numerous jobs, directly employing thousands of workers in the mining sector. Indirectly, coal mining also supports jobs in transportation, equipment supply, and other related industries. This employment is crucial for reducing poverty and improving living standards in the region.",
+      "Industrial Growth: The availability of coal supports the growth of various industries in Enugu State. By providing a reliable source of energy and raw materials, coal mining fosters the development of manufacturing and construction sectors, driving overall industrialization and economic diversification.",
+      "Export Potential: Coal from Enugu has substantial export potential. By exporting coal to other regions and countries, Enugu State can enhance its foreign exchange earnings, contributing to the national economy and improving the state's financial stability.",
+    ],
   },
   {
     id: "0x43 0x4C 0xFE 0x0C",
@@ -37,8 +58,28 @@ const enuguResources = [
       { name: "Ezeagu", description: "" },
       { name: "Nkanu East", description: "" },
     ],
-    description:
-      "Oil shale deposits in Enugu are found in various formations. These deposits have the potential for use in energy production, as they can be processed to extract shale oil. The extraction and processing of oil shale involve pyrolysis, hydrogenation, or thermal dissolution. The primary chemical component of oil shale is kerogen, a mixture of organic chemical compounds.",
+    description: [
+      "Shale is a fine-grained sedimentary rock composed of clay minerals and other fine particles. It is a significant mineral resource in Enugu State, Nigeria, contributing to various industries, particularly in construction and energy. This report provides a detailed overview of shale, including its discovery, locations, geological features, uses, and economic value to Enugu State.",
+      "Part of the larger Cretaceous geological formations within the Anambra Basin, the Enugu Shale Formation is characterized by extensive shale beds. These beds are occasionally interbedded with sandstones and siltstones, indicating a sedimentary environment that has undergone periodic changes in deposition conditions.",
+      "The shale layers often contain organic matter, which can be a source of hydrocarbons. The stratigraphy of the Enugu Shale Formation includes sequences of black shales, indicative of anoxic conditions during deposition",
+      "The primary minerals in shale are quartz, feldspar, and various clay minerals such as kaolinite, illite, and smectite. The presence of organic-rich layers makes certain shale formations potential sources of oil and gas",
+    ],
+    uses: [
+      "Hydrocarbon Exploration: Organic-rich shales can generate oil and gas when subjected to heat and pressure over geological time scales. These shales, known as source rocks, are crucial in hydrocarbon exploration and production.",
+      "Shale Gas: Advances in technology, such as hydraulic fracturing (fracking), have made it possible to extract natural gas from shale formations. This has the potential to boost the energy sector in Enugu State",
+      "Shale is a vital component in cement manufacturing. It provides the necessary alumina and silica, which are essential for the production of clinker, the primary ingredient in cement.",
+      "The use of shale in cement production helps reduce the reliance on other raw materials like limestone, ensuring a more sustainable supply chain.",
+      "Construction Materials: Shale is used to produce high-quality bricks and tiles. The clay content in shale gives it the plasticity required for molding, while the fine-grained nature ensures a smooth finish.",
+      "Building Infrastructure: Bricks and tiles made from shale are durable and resistant to weathering, making them ideal for construction projects.",
+      "Shale can be used as a base material in road construction. It provides a stable foundation and helps in the creation of durable road surface.",
+      "Crushed shale is often used as aggregate in road base layers, contributing to the overall strength and longevity of the roads",
+    ],
+    economics: [
+      "Energy Sector Development: The potential for oil and gas extraction from shale formations can transform the energy landscape of Enugu State. Developing shale gas resources can reduce energy costs, increase energy security, and provide a cleaner alternative to coal. Investment in shale gas exploration and production can attract both local and foreign investments, creating job opportunities and stimulating economic growth",
+      "Support for Construction Industry: The use of shale in cement production and brick manufacturing supports the construction industry. This, in turn, drives infrastructure development, including housing, commercial buildings, and public works. The availability of local raw materials reduces production costs and supports the competitiveness of the construction sector in Enugu State",
+      "Employment Opportunities: Shale mining and processing create numerous job opportunities, from extraction and transportation to processing and manufacturing. This helps reduce unemployment and improves the standard of living for residents. The development of shale gas resources also leads to the creation of jobs in the energy sector, including drilling, production, and maintenance roles.",
+      " Industrial Development: The utilization of shale in various industries supports broader industrial development. It fosters the growth of ancillary industries such as equipment manufacturing, transportation, and services. The economic activities generated by shale mining and processing contribute to the overall industrialization efforts of Enugu State.",
+    ],
   },
   {
     id: "0xD3 0x4F 0xE6 0x0C",
@@ -49,8 +90,12 @@ const enuguResources = [
       { name: "Nsukka", description: "" },
       { name: "Uzo-Uwani", description: "" },
     ],
-    description:
-      "Natural gas reserves in Enugu are primarily located in Nsukka and Uzo-Uwani. Natural gas is used for electricity generation, heating, and as a feedstock for the production of chemicals and fertilizers. The primary components of natural gas are methane (CH4) and other hydrocarbons such as ethane (C2H6), propane (C3H8), and butane (C4H10).",
+    description: [
+      "Natural gas reserves in Enugu are primarily located in Nsukka and Uzo-Uwani. Natural gas is used for electricity generation, heating, and as a feedstock for the production of chemicals and fertilizers.",
+      "The primary components of natural gas are methane (CH4) and other hydrocarbons such as ethane (C2H6), propane (C3H8), and butane (C4H10).",
+    ],
+    uses: [],
+    economics: [],
   },
   {
     id: "0xC3 0x99 0x25 0x14",
@@ -63,8 +108,15 @@ const enuguResources = [
       { name: "Nsukka", description: "" },
       { name: "Udi", description: "" },
     ],
-    description:
-      "Ironstone deposits in Enugu vary in oxidation states and are found in formations such as Ugwueme-Awgu, Nsude, and Ekulu river. The reserves are estimated to be millions of tonnes. Ironstone is used as an iron ore for the production of steel and various industrial machinery. The primary chemical composition of ironstone includes iron oxides such as hematite (Fe2O3) and magnetite (Fe3O4).",
+    description: [
+      "Ironstone deposits in Enugu vary in oxidation states and are found in formations such as Ugwueme-Awgu, Nsude, and Ekulu river. The reserves are estimated to be millions of tonnes.",
+      "Ironstone is used as an iron ore for the production of steel and various industrial machinery. The primary chemical composition of ironstone includes iron oxides such as hematite (Fe2O3) and magnetite (Fe3O4).",
+    ],
+    uses: [
+      "Ironstone is used as a raw material for steel manufacturing",
+      "It is also used as an aggregate in road construction",
+    ],
+    economics: [],
   },
   {
     id: "0x73 0xC4 0xE4 0x0C",
@@ -78,8 +130,22 @@ const enuguResources = [
       { name: "Isi-Uzo", description: "" },
       { name: "Nkanu East", description: "" },
     ],
-    description:
-      "Clay minerals, including kaolinite and laterite, are abundant in Enugu. They are essential for various industrial applications such as ceramics, paper production, and construction. The main chemical components of clay minerals include aluminum silicates (Al2Si2O5(OH)4 for kaolinite) and iron oxides. Clay is also used in the production of bricks, tiles, and cement.",
+    description: [
+      "Clay is a fine-grained natural soil material containing clay minerals, known for its plasticity when wet and its ability to harden when dried or fired. In Enugu State, Nigeria, clay is a significant mineral resource contributing to the state's economy, especially in the construction and ceramics industries.",
+      "Clay deposits in Enugu State are often found within the shale formations of the Anambra Basin, indicating a high degree of sedimentation from ancient lakes and rivers. These deposits are typically interbedded with sandstones and siltstones, which are common in the geological landscape of the region.",
+    ],
+    uses: [
+      " Production of Bricks and Tiles: Clay is extensively used in the production of bricks and tiles, which are essential materials for building and construction. These products are valued for their durability, thermal insulation, and aesthetic appeal.",
+      " Manufacture of Ceramics and Pottery: The ceramics industry relies heavily on clay for producing items such as plates, cups, vases, and decorative objects. Pottery made Comprehensive Report on the Potentials of the Mineral Resources in Enugu State from clay is a traditional craft in Enugu, contributing to the cultural heritage and economy.",
+      " Refractory Materials for Furnaces: Due to its high melting point, clay is used in the manufacture of refractory bricks and linings for furnaces and kilns. These materials are crucial in industries such as metallurgy, where they withstand high temperatures and protect structures from thermal damage.",
+      " Production of Paper and Rubber: In the paper industry, clay is used as a filler and coating material to improve the quality and smoothness of paper. In the rubber industry, clay acts as a filler to enhance the properties of rubber products.",
+    ],
+    economics: [
+      " Job Creation and Local Employment: Clay mining and related industries provide employment opportunities for many residents of Enugu State. From extraction to processing and manufacturing, the clay industry supports a wide range of jobs.",
+      " Support for Construction Industry: The production of bricks and tiles from clay is vital for the construction sector. This not only aids in infrastructure development but also stimulates growth in related industries such as real estate and urban development.",
+      " Boost to Artisanal and Small-Scale Industries: The manufacture of ceramics and pottery supports small-scale industries and artisans. These activities preserve cultural practices and provide a source of income for many families.",
+      " Industrial Development: The use of clay in producing refractory materials and its role in the paper and rubber industries contribute to the overall industrial development of the state. These industries benefit from the availability of local raw materials, reducing production costs and enhancing competitiveness.",
+    ],
   },
   {
     id: "0xE3 0x1C 0x18 0x14",
@@ -91,8 +157,20 @@ const enuguResources = [
       { name: "Enugu North", description: "" },
       { name: "Udi", description: "" },
     ],
-    description:
-      "Limestone deposits in Enugu are located in areas such as Awhum town and the Nsukka Formation. Limestone is crucial for cement production, construction, and as a raw material in the chemical industry. The primary chemical component of limestone is calcium carbonate (CaCO3). It is also used in the production of lime (CaO) and as a soil conditioner in agriculture.",
+    description: [
+      "Limestone deposits in Enugu State were identified through geological surveys conducted in the 1940s. These efforts by the Nigerian Geological Survey Agency were crucial in mapping out the mineral resources of the region and assessing their economic potential. The discovery significantly contributed to the industrial development of Enugu State, particularly in the cement industry.",
+      "The Nigerian Geological Survey Agency, established during the colonial era, conducted extensive surveys across Nigeria, leading to the discovery of limestone deposits in Enugu State. This discovery provided vital geological data that facilitated the exploitation and utilization of limestone resources in the region.",
+      "Enugu has estimated reserve of limestone in excess of 10 billion metric tons.",
+    ],
+    uses: [
+      "ment Manufacturing: Limestone is the primary raw material for producing cement. It is calcined in kilns to produce clinker, which is then ground to make cement, supporting infrastructure development.",
+      " Construction: Limestone is used in the production of aggregates for concrete, road base materials, and building stones.",
+      " Agriculture: Limestone improves soil fertility by neutralizing acidic soils, enhancing crop yields.",
+      " Chemical Industry: Limestone is used in producing lime (calcium oxide) for steel manufacturing, water treatment, and flue gas desulfurization.",
+    ],
+    economics: [
+      "The limestone mining and cement industries in Enugu State generate significant revenue through taxes, royalties, and mining leases. They provide employment opportunities, support infrastructure development, and contribute to economic diversification.",
+    ],
   },
   {
     id: "0x13 0xEE 0x98 0xA6",
@@ -100,8 +178,21 @@ const enuguResources = [
     audio: "/static/assets/audios/gypsum.mp3",
     name: "Gypsum",
     locations: [{ name: "Uzo-Uwani", description: "" }],
-    description:
-      "Gypsum in Enugu occurs as efflorescence in formations like Enugu Shale. It is identified in clear acicular crystals of the selenite variety. Gypsum is used in the production of plaster, wallboard, cement, and as a fertilizer. The chemical formula of gypsum is calcium sulfate dihydrate (CaSO4·2H2O).",
+    description: [
+      "Gypsum was identified through geological surveys conducted in Enugu State, Nigeria, in the 1960s. These surveys revealed significant deposits of the mineral in various locations, including Eha-amufu, Enugu Ngwo, and Ogbete. The discoveries were made by a team of geologists led by Dr. A. O. Onwualu, whose work in the region laid the foundation for the commercial exploitation of gypsum.",
+      "Gypsum forms in sedimentary environments, often as a result of the evaporation of seawater in ancient basins. It is commonly found in massive beds associated with other evaporite minerals such as halite and anhydrite.",
+      "The estimated reserve of Enugu gypsum is million metric tons.",
+    ],
+    uses: [
+      " Cement Production: Gypsum is an essential component in the production of cement. It acts as a set retarder, controlling the rate at which cement hardens. This is crucial for ensuring that concrete remains workable long enough to be properly placed and finished. The addition of gypsum improves the quality of the final product by preventing flash setting and providing the necessary time for the concrete to cure properly.",
+      " Drywall and Plaster: Gypsum is the primary ingredient in the manufacture of drywall (also known as plasterboard or gypsum board). Its fire-resistant properties make it an ideal material for constructing walls and ceilings. Gypsum plaster, made by heating gypsum to remove water content, is used for creating smooth, durable finishes on walls and ceilings.",
+      " Soil Amendment: Gypsum is widely used as a soil amendment. It helps improve soil structure by promoting the aggregation of soil particles, which enhances water infiltration and root penetration. This is particularly beneficial in compacted or heavy clay soils.",
+      " Nutrient Source: Gypsum provides essential nutrients, primarily calcium and sulfur, to plants. Calcium is crucial for cell wall formation and growth, while sulfur is a vital component of amino acids and proteins. By supplying these nutrients, gypsum enhances soil fertility and crop yields.",
+      "oil pH and Salinity Management: Gypsum is effective in ameliorating sodic soils, which have high sodium content that can adversely affect soil structure and plant growth. It replaces sodium ions with calcium ions, improving soil permeability and reducing salinity levels.",
+    ],
+    economics: [
+      "Gypsum plays a crucial role in several key industries, particularly construction and agriculture",
+    ],
   },
   {
     id: "0x13 0x6F 0x5A 0xC5",
@@ -109,7 +200,153 @@ const enuguResources = [
     audio: "/static/assets/audios/alum.mp3",
     name: "Alum",
     locations: [{ name: "Nkanu West", description: "" }],
-    description:
+    description: [
       "Alum deposits in Enugu are found in the river beds of Nyaba river. Alum is used in water purification, as a mordant in dyeing and printing textiles, and in the tanning of leather. The chemical formula for alum is potassium aluminum sulfate (KAl(SO4)2·12H2O).",
+    ],
+    uses: [],
+    economics: [],
+  },
+  {
+    id: "",
+    image: "/static/assets/images/resources/lateritic-soil.png",
+    audio: "/static/assets/audios/lateritic-soil.mp3",
+    name: "Lateritic Soil",
+    locations: [{ name: "Awgu", description: "" }],
+    description: [
+      "Lateritic soils are highly weathered soils rich in iron and aluminum. They are formed in hot and wet tropical areas and are characterized by a reddish color due to the high iron oxide content.",
+    ],
+    uses: [
+      " Used as a base material for roads and buildings.",
+      " Improves soil structure and fertility.",
+    ],
+    economics: [],
+  },
+  {
+    id: "",
+    image: "/static/assets/images/resources/alluvium.jgp",
+    audio: "/static/assets/audios/alluvium.mp3",
+    name: "Alluvium",
+    locations: [{ name: "Awgu", description: "" }],
+    description: [
+      "Alluvium consists of clay, silt, sand, and gravel deposited by running water, typically in riverbeds, floodplains, and deltas.",
+    ],
+    uses: [
+      "fertile soil used for farming.",
+      "Source of sand and gravel for building.",
+    ],
+    economics: [],
+  },
+  {
+    id: "",
+    image: "/static/assets/images/resources/kaolin.png",
+    audio: "/static/assets/audios/kaolin.mp3",
+    name: "Kaolin",
+    locations: [
+      { name: "Uzo-Uwani", description: "" },
+      { name: "Ezeagu", description: "" },
+    ],
+    description: [
+      "Kaolin, also known as China clay, is a fine, white clay used in the production of ceramics, paper, rubber, paint, and many other products. It is highly valued for its purity, whiteness, and fine particle size. Recent mineral mapping and exploration activities in Enugu State have revealed significant deposits of kaolin in Nrobo, Uzo Uwani LGA, and Imezi Ani, Ezeagu LGA. This report provides a comprehensive overview of kaolin, including its discovery, geological features, uses, and economic value",
+      "The estimated reserve of Kaolin in Enugu State is 1 billion metric tons.",
+    ],
+    uses: [
+      " Porcelain and Fine China: Kaolin is essential in the production of high-quality porcelain and fine china due to its whiteness, plasticity, and firing properties.",
+      "Tiles and Sanitary Ware: Kaolin is used in the manufacture of ceramic tiles and sanitary ware, providing strength and smoothness",
+      "Paper Industry: Paper Coating: Kaolin is used as a coating material in the paper industry to improve brightness, smoothness, and printability of paper. Paper Filling: It is also used as a filler in paper production to enhance opacity and reduce costs.",
+      " Paints and Coatings: Pigment and Extender: Kaolin is used as a pigment and extender in paints and coatings, providing improved opacity, whiteness, and stability. Rheology Modifier: It helps in controlling the viscosity and flow properties of paints and coatings.",
+    ],
+    economics: [],
+  },
+  {
+    id: "",
+    image: "/static/assets/images/resources/lead-zinc.jpeg",
+    audio: "/static/assets/audios/lead-zinc.mp3",
+    name: "Lead & Zinc",
+    locations: [
+      { name: "Aninri", description: "" },
+      { name: "Awgu", description: "" },
+    ],
+    description: [
+      "Lead and zinc are critical base metals used in various industrial applications, including construction, manufacturing, and technology. Enugu State, Nigeria, has been rumored to have lead-zinc deposits for years. However, these deposits were confirmed during the ongoing Enugu Mineral Mapping and Exploration Project. This report provides a detailed overview of lead-zinc deposits in Enugu, including their discovery, locations, geological features, uses, and economic value.",
+    ],
+    uses: [
+      " Lead: Batteries: The most significant use of lead is in lead-acid batteries, which are widely used in vehicles, backup power systems, and industrial applications. Radiation Shielding: Lead's high density and ability to block radiation make it essential for radiation shielding in medical, industrial, and nuclear applications. Ammunition: Lead is used in the production of bullets and other ammunition due to its density and malleabilit. Alloys: Lead is alloyed with other metals to enhance properties such as corrosion resistance and workability, used in applications like soldering and piping",
+    ],
+    economics: [
+      " Manufacturing and Production: The availability of lead and zinc supports local manufacturing and production industries, driving industrial growth and diversification of the economy. b. Value Addition: Processing lead and zinc ores locally can add value to the raw materials, creating refined products and generating higher revenue",
+      "Employment Opportunities Mining and Processing: The extraction and processing of lead-zinc ores create numerous job opportunities in mining, refining, and related activities. This employment helps reduce unemployment and improves the standard of living for local residents. The development of lead-zinc mining also supports various allied industries, including transportation, equipment manufacturing, and services",
+      " Infrastructure Development, Mining activities can lead to the development of local infrastructure, including roads, schools, healthcare facilities, and utilities, benefiting the surrounding communities. Improved infrastructure facilitates economic integration and connectivity, promoting trade and investment within the region.",
+      "Revenue Generation: The extraction and sale of lead and zinc generate revenue for Enugu State through mining licenses, royalties, and taxes. This revenue can be reinvested in public services and infrastructure development. High-quality lead and zinc have export potential, creating opportunities for international trade and generating foreign exchange earnings for the state",
+    ],
+  },
+  {
+    id: "",
+    image: "/static/assets/images/resources/granite.png",
+    audio: "/static/assets/audios/granite.mp3",
+    name: "Granite",
+    locations: [
+      { name: "Aninri", description: "" },
+      { name: "Nkanu East", description: "" },
+    ],
+    description: [
+      "Granite is essential materials in building and infrastructure projects due to their strength, durability, and versatility. In Enugu State, ongoing mineral mapping projects have recently identified significant deposits of construction stones. This report provides a comprehensive overview of these discoveries, including their locations, geological features, uses, and economic value.",
+    ],
+    uses: [
+      " Building and Construction Materials: Construction stones are used to build foundations, walls, and pillars. Their strength and durability make them ideal for load-bearing structures. Stones like granite and limestone are used for facades and cladding of buildings, providing aesthetic appeal and weather resistance.",
+      " Road Construction: Aggregates: Crushed stone aggregates are used in road construction as base material, sub-base material, and for asphalt production. They provide stability and durability to road surfaces.  Basalt and granite are often cut into paving stones for constructing durable and long-lasting roads, sidewalks, and pathways",
+      " Monuments and Sculptures Artistic: High-quality construction stones are used to create monuments and sculptures, contributing to cultural heritage and tourism. Stones like marble and granite are used for decorative elements in buildings and public spaces, enhancing their aesthetic value",
+      " Landscaping: Stones are used in landscaping to create garden features such as retaining walls, steps, and pathways. They provide a natural and appealing look to outdoor spaces. Construction stones are also used to build water features like fountains and ponds, adding beauty and tranquility to gardens and parks.",
+    ],
+    economics: [
+      " Job Creation and Local Employment: The extraction of construction stones creates numerous job opportunities in mining and quarrying activities. This employment helps reduce unemployment and improves the standard of living for local residents. The use of local construction stones supports the construction industry, creating jobs in building, road construction, and infrastructure projects.",
+      " Infrastructure Development: The availability of high-quality construction stones supports numerous building projects, including residential, commercial, and public infrastructure. This contributes to urban development and modernization. The use of local aggregates and paving stones in road construction improves the quality and longevity of road networks, facilitating transportation and commerce.",
+      " Cost Reduction :Local Sourcing: Using locally sourced construction stones reduces transportation costs and reliance on imported materials. This cost efficiency makes construction projects more affordable and boosts the competitiveness of the local construction industry. The availability of local materials supports sustainable development by reducing the carbon footprint associated with transporting construction materials from distant locations.",
+      " Revenue Generation: The extraction and sale of construction stones generate revenue for the state through mining royalties. This revenue can be reinvested in public services and infrastructure development. High-quality construction stones have export potential, creating opportunities for international trade and generating foreign exchange earnings for the state.",
+    ],
+  },
+  {
+    id: "",
+    image: "/static/assets/images/resources/iron-ore.jpg",
+    audio: "/static/assets/audios/iron-ore.mp3",
+    name: "Iron Ore",
+    locations: [{ name: "Udi", description: "" }],
+    description: [
+      "Iron ore is a crucial mineral resource in Enugu State, Nigeria. It is a primary raw material for the production of steel and other iron-based products, which are essential to various industries. This report provides a detailed overview of iron ore in Enugu State, including its discovery, locations, geological features, uses, and economic value.",
+    ],
+    uses: [
+      " Steel Production Basic Ingredient: Iron ore is the main raw material for producing steel. Through processes like smelting in blast furnaces, iron ore is converted into molten iron, which is then used to manufacture steel. Steel produced from iron ore is essential for constructing buildings, bridges, railways, and other infrastructure projects, driving industrialization and urbanization",
+      " Manufacture of Iron and Steel Products Industrial Components: Iron ore is used to produce various iron and steel products, including machinery, tools, appliances, and vehicles. These products are crucial for multiple sectors such as manufacturing, transportation, and agriculture. Everyday items like kitchen utensils, furniture, and decorative objects are often made from steel, highlighting the importance of iron ore in daily life.",
+      " Construction Materials Reinforcement and Framework: Steel bars and rods, derived from iron ore, are commonly used as reinforcement in concrete structures. They provide the necessary strength and stability for buildings and other constructions. Prefabricated Structures: Steel is also used in prefabricated structures, which are increasingly popular in modern construction due to their durability, cost-effectiveness, and ease of assembly.",
+      " Automotive Industry Vehicle Manufacturing: The automotive industry relies heavily on steel for producing various vehicle components, including frames, engines, and body parts. Iron ore, therefore, plays a vital role in the production of cars, trucks, and other vehicles. Steel parts and accessories, such as gears, axles, and brakes, are essential for the performance and safety of vehicles.",
+    ],
+    economics: [
+      " Support for the Steel Industry: Iron ore mining is a cornerstone of the steel industry, which is critical for various sectors, including construction, manufacturing, and automotive. The development of steel plants in Enugu State can lead to substantial industrial growth and diversification of the economy. The steel industry generates numerous jobs, from mining and processing iron ore to manufacturing steel products and constructing infrastructure. This employment creation helps reduce unemployment and boosts the local economy",
+      " Infrastructure Development Construction Projects: The availability of local iron ore supports infrastructure development projects in Enugu State. Using locally sourced materials reduces costs and encourages investment in public works and commercial buildings.  As cities expand, the demand for steel in constructing residential and commercial buildings grows, driving further economic development and urbanization.",
+      " Export Potential: International Trade: High-quality iron ore from Enugu State can be exported to international markets, generating foreign exchange earnings. This can boost the state's revenue and strengthens its economic position. d. Competitive Advantage: The presence of significant iron ore deposits gives Enugu State a competitive advantage in the global market, attracting foreign direct investment (FDI) and fostering ",
+      " Support for Allied Industries Manufacturing Sector: The steel industry supports numerous allied industries, including machinery manufacturing, automotive production, and tool making. These industries benefit from the availability of raw materials and contribute to overall industrialization. Construction Sector: The construction sector relies heavily on steel for building infrastructure. The local availability of iron ore reduces material costs and supports the growth of construction companies",
+    ],
+  },
+  {
+    id: "",
+    image: "/static/assets/images/resources/clay.jpg",
+    audio: "/static/assets/audios/clay.mp3",
+    name: "Clay",
+    locations: [{ name: "Aninri", description: "" }],
+    description: [
+      "Clay is a fine-grained natural soil material containing clay minerals, known for its plasticity when wet and its ability to harden when dried or fired. In Enugu State, Nigeria, clay is a significant mineral resource contributing to the state's economy, especially in the construction and ceramics industries",
+      "Clay deposits in Enugu State are often found within the shale formations of the Anambra Basin, indicating a high degree of sedimentation from ancient lakes and rivers. These deposits are typically interbedded with sandstones and siltstones, which are common in the geological landscape of the region.",
+    ],
+    uses: [
+      " Production of Bricks and Tiles: Clay is extensively used in the production of bricks and tiles, which are essential materials for building and construction. These products are valued for their durability, thermal insulation, and aesthetic appeal.",
+      " Manufacture of Ceramics and Pottery: The ceramics industry relies heavily on clay for producing items such as plates, cups, vases, and decorative objects. Pottery made Comprehensive Report on the Potentials of the Mineral Resources in Enugu State from clay is a traditional craft in Enugu, contributing to the cultural heritage and economy.",
+      " Refractory Materials for Furnaces: Due to its high melting point, clay is used in the manufacture of refractory bricks and linings for furnaces and kilns. These materials are crucial in industries such as metallurgy, where they withstand high temperatures and protect structures from thermal damage.",
+      " Production of Paper and Rubber: In the paper industry, clay is used as a filler andcoating material to improve the quality and smoothness of paper. In the rubber industry, clay acts as a filler to enhance the properties of rubber products.",
+    ],
+    economics: [
+      " Job Creation and Local Employment: Clay mining and related industries provide employment opportunities for many residents of Enugu State. From extraction to processing and manufacturing, the clay industry supports a wide range of jobs.",
+      " Support for Construction Industry: The production of bricks and tiles from clay is vital for the construction sector. This not only aids in infrastructure development but also stimulates growth in related industries such as real estate and urban development.",
+      " Boost to Artisanal and Small-Scale Industries: The manufacture of ceramics and pottery supports small-scale industries and artisans. These activities preserve cultural practices and provide a source of income for many families.",
+      " Industrial Development: The use of clay in producing refractory materials and its role in the paper and rubber industries contribute to the overall industrial development of the state. These industries benefit from the availability of local raw materials, reducing production costs and enhancing competitiveness.",
+    ],
   },
 ];

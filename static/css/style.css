@@ -36,7 +36,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 220px;
-  z-index: 1000;
+  z-index: 99;
 }
 
 #banner {
@@ -56,12 +56,12 @@ body {
   position: fixed;
   top: 3%;
   transform: translateX(-50%);
-  z-index: 100;
+  z-index: 98;
 }
 
 #banner #coa1,
 #coa2 {
-  transition: 5s;
+  transition: 0.5s;
 }
 
 #coa1,
@@ -82,38 +82,54 @@ body {
 }
 
 /* Set the size of the map */
+
 #map {
-  height: 120%;
-  left: -10%;
-  position: fixed;
-  transition: 0.3s;
-  top: -10%;
-  transform: translate(0%, 0%) scale(1.2);
-  width: 120%;
-}
-
-/* Custom overlay style */
-.svg-overlay {
   position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+#fade {
+  display: block;
+  position: relative;
+  margin: 0px auto;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background: #ee8a65;
 }
 
-path {
-  fill: transparent;
-  stroke-opacity: 0;
-  transition: 0.4s;
+/* Deck of cards */
+#deck {
+  align-items: center;
+  display: grid;
+  height: 100%;
+  left: 10vw;
+  position: fixed;
+  width: 20vw;
+  z-index: 1;
 }
 
-.active {
-  fill: var(--primary-color);
-  stroke-opacity: 1;
-  stroke: #fff;
-}
-.active + text {
-  fill: #000 !important;
+.card {
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  height: 400px;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
 }
 
-text {
-  fill: transparent !important;
+.card_content {
+  border-radius: inherit;
+  border: 2px solid #000;
+  height: 100%;
+  padding: 1rem;
+  width: 100%;
 }
 
 /* SIDE BAR */

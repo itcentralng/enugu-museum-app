@@ -51,18 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
     zoom: 1,
   };
 
-  const offsets = {
-    "glass sand": { x: 450, y: 275, zoom: 2 },
-    coal: { x: -150, y: 0, zoom: 1 },
-    "oil shale": { x: 100, y: 350, zoom: 1.5 },
-    gas: { x: 200, y: 20, zoom: 2 },
-    ironstone: { x: -150, y: 0, zoom: 1 },
-    "clay minerals": { x: -170, y: 0, zoom: 1 },
-    limestone: { x: -100, y: 250, zoom: 1.2 },
-    gypsum: { x: 400, y: 50, zoom: 2 },
-    alum: { x: 400, y: 150, zoom: 2 },
-  };
-
   // GSAP timeline for pan-map animation
   const defaultTimeline = gsap.timeline({ repeat: -1, paused: true });
   const interactionTimeline = gsap.timeline();
@@ -109,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const highlightAreas = (regions) => {
     regions.forEach((region) => {
       const regionElement = document.getElementById(region);
+      if (!regionElement) console.log(region);
       regionElement.classList.add("active");
     });
   };
@@ -135,10 +124,21 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Function to zoom into region
+  const coordinates = {
+    "glass sand": { x: 450, y: 200, zoom: 2.2 },
+    coal: { x: 80, y: 30, zoom: 1.4 },
+    "oil shale": { x: 190, y: 250, zoom: 1.7 },
+    gas: { x: 250, y: -100, zoom: 2.2 },
+    ironstone: { x: 80, y: 70, zoom: 1.4 },
+    "clay minerals": { x: 130, y: 30, zoom: 1.4 },
+    limestone: { x: 250, y: 170, zoom: 1.7 },
+    gypsum: { x: 250, y: -100, zoom: 2.2 },
+    alum: { x: 400, y: 150, zoom: 2.2 },
+  };
+
   const zoomInOnRegion = (resource) => {
     stopPan();
-    const coords = offsets[resource.name.toLowerCase()]; // Get the offsets to account for background image
-    console.log(coords);
+    const coords = coordinates[resource.name.toLowerCase()]; // Get the offsets to account for background image
 
     // Apply the zoom and pan transformation
     gsap.to(map, {
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const zoomOut = () => {
     gsap.to(map, {
-      scale: 1,
+      scale: 1.2,
       x: 0,
       y: 0,
       transformOrigin: `50% 50%`,
@@ -211,6 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const showResource = (id) => {
     interactionTimeline.play();
     const resource = enuguResources.find((resource) => resource.id === id);
+
     zoomInOnRegion(resource);
     highlightAreas(
       resource.locations.map((l) => l.name.replaceAll(" ", "-").toLowerCase())
@@ -234,7 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // SOCKET IO CONNECTION - HANDLE RESOURCE PICKUP
   var socket = io.connect("http://127.0.0.1:5550");
   socket.on("rfid_status", function (data) {
-    console.log(data);
     if (data.status != "removed") {
       RFID = data.status;
       showResource(RFID);

@@ -64,7 +64,7 @@ body {
   height: 20vh;
   position: fixed;
   width: 20vh;
-  z-index: 1000;
+  z-index: 1;
 }
 
 #coa1 {
@@ -83,7 +83,7 @@ body {
   position: fixed;
   transition: 0.3s;
   top: -10%;
-  transform: translate(0%, 0%);
+  transform: translate(0%, 0%) scale(1.2);
   width: 120%;
 }
 
@@ -131,6 +131,7 @@ text {
   top: 0;
   transform: translateX(-100%);
   width: var(--width);
+  z-index: 99;
 }
 
 #sidebar .content {

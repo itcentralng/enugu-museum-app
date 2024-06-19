@@ -99,7 +99,7 @@ const enuguResources = [
     image: "/static/assets/images/resources/gypsum.png",
     audio: "/static/assets/audios/gypsum.mp3",
     name: "Gypsum",
-    locations: [{ name: "Enugu Shale", description: "" }],
+    locations: [{ name: "Uzo-Uwani", description: "" }],
     description:
       "Gypsum in Enugu occurs as efflorescence in formations like Enugu Shale. It is identified in clear acicular crystals of the selenite variety. Gypsum is used in the production of plaster, wallboard, cement, and as a fertilizer. The chemical formula of gypsum is calcium sulfate dihydrate (CaSO4·2H2O).",
   },

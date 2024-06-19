@@ -207,9 +207,25 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   };
 
+  // Hide/Show COAs/badges and App Banner/Title
+  const badge = document.getElementById("banner");
+  const coa1 = document.getElementById("coa1");
+  const coa2 = document.getElementById("coa2");
+  const hideBadgesandTitle = () => {
+    badge.style.opacity = 0;
+    coa1.style.opacity = 0;
+    coa2.style.opacity = 0;
+  };
+  const showBadgesandTitle = () => {
+    badge.style.opacity = 1;
+    coa1.style.opacity = 1;
+    coa2.style.opacity = 1;
+  };
+
   // Resource
   const showResource = (id) => {
     interactionTimeline.play();
+    hideBadgesandTitle();
     const resource = enuguResources.find((resource) => resource.id === id);
 
     zoomInOnRegion(resource);
@@ -223,6 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const hideResource = () => {
     interactionTimeline.pause(0);
+    showBadgesandTitle();
     stopAudio();
     hideSideBar();
     hideExtraInfo();

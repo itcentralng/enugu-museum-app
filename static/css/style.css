@@ -59,6 +59,11 @@ body {
   z-index: 100;
 }
 
+#banner #coa1,
+#coa2 {
+  transition: 5s;
+}
+
 #coa1,
 #coa2 {
   height: 20vh;

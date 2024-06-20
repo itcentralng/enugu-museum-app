@@ -152,6 +152,7 @@ img {
   height: 100%;
   left: 0;
   padding: var(--padding);
+  padding-top: 0;
   position: fixed;
   top: 0;
   transform: translateX(-100%);
@@ -170,7 +171,7 @@ img {
   gap: 1rem;
   height: calc(var(--width) - var(--padding) * 2);
   justify-content: end;
-  transform: rotate(-90deg) translate(-50%, 50%); /* Translate to counter rotation effect */
+  transform: rotate(-90deg) translate(-25%, 50%); /* Translate to counter rotation effect */
   transform-origin: left;
   width: var(--width);
 }

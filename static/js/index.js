@@ -35,7 +35,7 @@ fetch("static/data/map-data.geojson")
 
     // Resource coords & zoom levels
     const coords = {
-      Sandstone: { x: 7.3, y: 6.3, zoom: 9 },
+      "Sand": { x: 7.3, y: 6.3, zoom: 9 },
       Coal: { x: 7, y: 6.5, zoom: 8.9 },
       "Oil Shale": { x: 7.2, y: 6.25, zoom: 9 },
       Gas: { x: 6.9, y: 6.7, zoom: 9 },

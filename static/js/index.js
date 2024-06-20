@@ -178,6 +178,41 @@ fetch("static/data/map-data.geojson")
           });
         }
       });
+
+      // Add local government labels
+      const labels = {
+        type: "FeatureCollection",
+        features: areas.features.map((area) => ({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: getCentroid(area.geometry),
+          },
+          properties: {
+            title: area.properties.shape2,
+          },
+        })),
+      };
+
+      map.addSource("lga-labels", {
+        type: "geojson",
+        data: labels,
+      });
+
+      map.addLayer({
+        id: "lga-labels",
+        type: "symbol",
+        source: "lga-labels",
+        layout: {
+          "text-field": ["get", "title"],
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0.6],
+          "text-anchor": "top",
+        },
+        paint: {
+          "text-color": "#000000",
+        },
+      });
     });
 
     // Extra info cards
@@ -269,7 +304,6 @@ fetch("static/data/map-data.geojson")
         setTimeout(beginRotation, 2000);
         zoomOut();
         selectedLocations.forEach((location) => {
-          zoomOut();
           deselectArea(location.name);
         });
         hideSideBar();

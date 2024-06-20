@@ -217,8 +217,8 @@ fetch("static/data/map-data.geojson")
 
     // Extra info cards
     const showExtraInfo = (descriptions) => {
-      const tl = gsap.timeline();
       console.log(descriptions);
+      const tl = gsap.timeline();
 
       const info1 = document.getElementById("info-1");
       info1.innerHTML = `<div class="content"><p>${descriptions[0]}</p></div>`;
@@ -233,29 +233,12 @@ fetch("static/data/map-data.geojson")
         tl.to(info2, { opacity: 0, duration: 0.2 });
       }
     };
-    const showUsesInfo = (uses) => {
-      const tl = gsap.timeline();
-      console.log(uses);
-
-      const info1 = document.getElementById("info-1");
-      info1.innerHTML = `<div class="content"><p>${uses[0]}</p></div>`;
-      tl.fromTo(info1, { opacity: 0 }, { opacity: 1 });
-
-      if (uses[1]) {
-        const info2 = document.getElementById("info-2");
-        info2.innerHTML = `<div class="content"><p>${uses[1]}</p></div>`;
-        tl.fromTo(info2, { opacity: 0 }, { opacity: 1 });
-      } else {
-        const info2 = document.getElementById("info-2");
-        tl.to(info2, { opacity: 0, duration: 0.2 });
-      }
-    };
 
     const hideExtraInfo = () => {
-      const tl = gsap.timeline();
+      const tl2 = gsap.timeline();
 
       Array.from(document.body.querySelectorAll(".info_card")).forEach((card) =>
-        tl.to(card, { opacity: 0, duration: 0.2 })
+        tl2.to(card, { opacity: 0, duration: 0.2 })
       );
     };
 
@@ -304,13 +287,14 @@ fetch("static/data/map-data.geojson")
     let RFID = "";
     let selectedLocations = [];
     var socket = io.connect("http://127.0.0.1:5550");
+    let infoInterval;
+    let usesInterval;
+    let economicsInterval;
+    let audioTimeout;
     socket.on("rfid_status", function (data) {
-      let infoInterval;
-      let usesInterval;
-      let audioTimeout;
       if (data.status != "removed") {
-        stopRotation();
         RFID = data.status;
+        stopRotation();
         // const resource = enuguResources.find((resource) => resource.id == RFID);
         const resource = enuguResources.find(
           (resource) => resource.name == "Limestone"
@@ -378,7 +362,10 @@ fetch("static/data/map-data.geojson")
         });
         hideSideBar();
         showBadgesandTitle();
+        console.log(infoInterval, usesInterval, economicsInterval);
         clearInterval(infoInterval);
+        clearInterval(usesInterval);
+        clearInterval(economicsInterval);
         clearTimeout(audioTimeout);
         hideExtraInfo();
         stopAudio();

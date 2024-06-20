@@ -7,9 +7,10 @@ fetch("static/data/map-data.geojson")
     const map = new mapboxgl.Map({
       container: "map", // container ID
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-      style: "mapbox://styles/mapbox/light-v11", // style URL
+      style: "mapbox://styles/mapbox/outdoors-v12", // style URL
       center: [7.46275, 6.499083], // starting position
-      zoom: 8, // starting zoom
+      zoom: 8.9, // starting zoom
+      attributionControl: false
     });
 
     const selectArea = (areaName) => {

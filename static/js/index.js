@@ -216,17 +216,38 @@ fetch("static/data/map-data.geojson")
     });
 
     // Extra info cards
-    const showExtraInfo = (resource) => {
+    const showExtraInfo = (descriptions) => {
       const tl = gsap.timeline();
+      console.log(descriptions);
 
       const info1 = document.getElementById("info-1");
-      info1.innerHTML = `<div class="content"><p>${resource.description[0]}</p></div>`;
+      info1.innerHTML = `<div class="content"><p>${descriptions[0]}</p></div>`;
       tl.fromTo(info1, { opacity: 0 }, { opacity: 1 });
 
-      if (resource.description[1]) {
+      if (descriptions[1]) {
         const info2 = document.getElementById("info-2");
-        info2.innerHTML = `<div class="content"><p>${resource.description[1]}</p></div>`;
+        info2.innerHTML = `<div class="content"><p>${descriptions[1]}</p></div>`;
         tl.fromTo(info2, { opacity: 0 }, { opacity: 1 });
+      } else {
+        const info2 = document.getElementById("info-2");
+        tl.to(info2, { opacity: 0, duration: 0.2 });
+      }
+    };
+    const showUsesInfo = (uses) => {
+      const tl = gsap.timeline();
+      console.log(uses);
+
+      const info1 = document.getElementById("info-1");
+      info1.innerHTML = `<div class="content"><p>${uses[0]}</p></div>`;
+      tl.fromTo(info1, { opacity: 0 }, { opacity: 1 });
+
+      if (uses[1]) {
+        const info2 = document.getElementById("info-2");
+        info2.innerHTML = `<div class="content"><p>${uses[1]}</p></div>`;
+        tl.fromTo(info2, { opacity: 0 }, { opacity: 1 });
+      } else {
+        const info2 = document.getElementById("info-2");
+        tl.to(info2, { opacity: 0, duration: 0.2 });
       }
     };
 
@@ -284,11 +305,16 @@ fetch("static/data/map-data.geojson")
     let selectedLocations = [];
     var socket = io.connect("http://127.0.0.1:5550");
     socket.on("rfid_status", function (data) {
-      let timeout;
+      let infoInterval;
+      let usesInterval;
+      let audioTimeout;
       if (data.status != "removed") {
         stopRotation();
         RFID = data.status;
-        const resource = enuguResources.find((resource) => resource.id == RFID);
+        // const resource = enuguResources.find((resource) => resource.id == RFID);
+        const resource = enuguResources.find(
+          (resource) => resource.name == "Limestone"
+        );
         selectedLocations = resource.locations;
         zoomToResource(resource.name);
         resource.locations.forEach((location) => {
@@ -296,10 +322,54 @@ fetch("static/data/map-data.geojson")
         });
         revealSidebar(resource);
         hideBadgesandTitle();
-        timeout = setTimeout(() => {
+        audioTimeout = setTimeout(() => {
           playAudio(resource.audio);
-          showExtraInfo(resource);
         }, 4500);
+
+        let descriptionCount = 0;
+        infoInterval = setInterval(() => {
+          console.log(descriptionCount);
+          if (descriptionCount < resource.description.length) {
+            showExtraInfo(
+              resource.description.slice(descriptionCount, descriptionCount + 2)
+            );
+            descriptionCount += 2;
+          } else {
+            clearInterval(infoInterval);
+          }
+        }, 6000);
+
+        let usesCount = 0;
+        usesInterval = setInterval(() => {
+          if (
+            usesCount < resource.uses.length &&
+            descriptionCount > resource.description.length
+          ) {
+            showExtraInfo(resource.uses.slice(usesCount, usesCount + 2));
+            usesCount += 2;
+          } else if (descriptionCount > resource.description.length) {
+            clearInterval(usesInterval);
+          }
+        }, 6000);
+
+        let economicsCount = 0;
+        economicsInterval = setInterval(() => {
+          if (
+            economicsCount < resource.uses.length &&
+            descriptionCount > resource.description.length &&
+            usesCount > resource.uses.length
+          ) {
+            showExtraInfo(
+              resource.economics.slice(economicsCount, economicsCount + 2)
+            );
+            economicsCount += 2;
+          } else if (
+            descriptionCount > resource.description.length &&
+            usesCount > resource.uses.length
+          ) {
+            clearInterval(economicsInterval);
+          }
+        }, 6000);
       } else {
         setTimeout(beginRotation, 2000);
         zoomOut();
@@ -308,7 +378,8 @@ fetch("static/data/map-data.geojson")
         });
         hideSideBar();
         showBadgesandTitle();
-        clearTimeout(timeout);
+        clearInterval(infoInterval);
+        clearTimeout(audioTimeout);
         hideExtraInfo();
         stopAudio();
       }

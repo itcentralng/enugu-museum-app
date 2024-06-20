@@ -20,22 +20,25 @@ body {
   height: 100%;
 }
 
+img {
+  max-width: 100%;
+}
+
 /* ALLOW AUDIO BUTTON */
 #button {
   background-color: rgb(236, 61, 30);
   border-color: transparent;
   border-radius: 50%;
+  bottom: 2vw;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 1);
   color: #fff;
   display: block;
-  font-size: 2rem;
-  height: 220px;
-  left: 50%;
+  font-size: 1.6rem;
+  height: 180px;
+  right: 2vw;
   position: fixed;
   padding: 1rem;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 220px;
+  width: 180px;
   z-index: 99;
 }
 
@@ -145,6 +148,7 @@ body {
   align-items: end;
   background-color: var(--primary-color);
   color: #fff;
+  display: grid;
   height: 100%;
   left: 0;
   padding: var(--padding);
@@ -153,6 +157,10 @@ body {
   transform: translateX(-100%);
   width: var(--width);
   z-index: 99;
+}
+
+#sidebar img {
+  width: calc(100% - var(--padding) * 2);
 }
 
 #sidebar .content {

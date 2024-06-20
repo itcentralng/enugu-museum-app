@@ -8,7 +8,7 @@ const allowPlayAudio = () => {
 const playAudio = (src) => {
   audioPlayer.src = src;
   audioPlayer.load();
-  audioPlayer.play();
+  audioPlayer.play().catch((error) => console.log(error));
 };
 
 const stopAudio = () => {
@@ -28,8 +28,9 @@ fetch("static/data/map-data.geojson")
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
       style: "mapbox://styles/mapbox/outdoors-v12", // style URL
       center: [7.46275, 6.499083], // starting position
-      zoom: 8.7, // starting zoom
+      zoom: 2.5, // starting zoom
       attributionControl: false,
+      pitch: 45,
     });
 
     // Resource coords & zoom levels
@@ -55,10 +56,12 @@ fetch("static/data/map-data.geojson")
     const zoomToResource = (resourceName) => {
       const resource = coords[resourceName];
       if (resource) {
+        map.rotateTo(0, { duration: 0 });
         map.flyTo({
           center: [resource.x, resource.y],
-          speed: 0.2,
+          speed: 1,
           zoom: resource.zoom,
+          pitch: 0,
         });
       } else {
         console.error(`Resource ${resourceName} not found.`);
@@ -66,7 +69,12 @@ fetch("static/data/map-data.geojson")
     };
 
     const zoomOut = () => {
-      map.flyTo({ center: [7.46275, 6.499083], speed: 0.2, zoom: 8.9 });
+      // map.setZoom(2.5);
+      map.zoomTo(2.5, {
+        duration: 2000,
+        center: [7.46275, 6.499083],
+        pitch: 45,
+      });
     };
 
     // Highlight Resource Areas
@@ -120,6 +128,7 @@ fetch("static/data/map-data.geojson")
 
     // Setup map Sources for each area
     map.on("load", () => {
+      beginRotation();
       areas.features.forEach((area) => {
         const ifExists = map.getSource(area.properties.shape2);
         if (!ifExists) {

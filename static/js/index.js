@@ -88,25 +88,28 @@ fetch("static/data/map-data.geojson")
         return;
       }
 
-      const ifExists = !map.getLayer(area.properties.shape2);
-      if (ifExists) {
+      if (!map.getSource(area.properties.shape2)) {
         map.addSource(area.properties.shape2, {
           type: "geojson",
           data: area,
         });
+      }
 
+      if (!map.getLayer(area.properties.shape2)) {
         map.addLayer({
           id: area.properties.shape2,
           type: "fill",
-          source: area.properties.shape2, // reference the data source
+          source: area.properties.shape2,
           layout: {},
           paint: {
-            "fill-color": "#964B00", // brown color fill
-            "fill-opacity": 0.7, // 70% opaque
-            "fill-opacity-transition": { duration: 300 }, // 300 milliseconds = 0.3 seconds
+            "fill-color": "#EF6A39",
+            "fill-opacity": 0.7,
+            "fill-opacity-transition": { duration: 300 },
           },
         });
+      }
 
+      if (!map.getLayer(area.properties.shape2 + "-outline")) {
         map.addLayer({
           id: area.properties.shape2 + "-outline",
           type: "line",
@@ -265,11 +268,44 @@ fetch("static/data/map-data.geojson")
       }
     }
 
-    // Call the function to add all labels to the map
+    function removeAllTextFromMap() {
+      for (const key in labelCoords) {
+        if (labelCoords.hasOwnProperty(key)) {
+          const lga = labelCoords[key];
+          const coords = lga.coord;
+
+          const sourceId = `point-${coords.join("-")}`;
+          const layerId = `layer-${coords.join("-")}`;
+
+          // Remove layer if it exists
+          if (map.getLayer(layerId)) {
+            map.removeLayer(layerId);
+          }
+
+          // Remove source if it exists
+          if (map.getSource(sourceId)) {
+            map.removeSource(sourceId);
+          }
+        }
+      }
+    }
 
     map.on("load", () => {
-      addAllTextToMap();
-      highlightAllAreas();
+      if (map.getLayer("background")) {
+        map.setPaintProperty(
+          "background",
+          "background-color",
+          "rgba(200, 125, 50, 0.3)"
+        );
+      } else {
+        map.addLayer({
+          id: "background",
+          type: "background",
+          paint: {
+            "background-color": "rgba(200, 125, 50, 0.3)",
+          },
+        });
+      }
       beginRotation();
       areas.features.forEach((area) => {
         const ifExists = map.getSource(area.properties.shape2);
@@ -358,6 +394,7 @@ fetch("static/data/map-data.geojson")
     let usesInterval;
     let economicsInterval;
     let audioTimeout;
+
     socket.on("rfid_status", function (data) {
       if (data.status != "removed") {
         RFID = data.status;
@@ -365,6 +402,7 @@ fetch("static/data/map-data.geojson")
         const resource = enuguResources.find((resource) => resource.id == RFID);
         selectedLocations = resource.locations;
         zoomToResource(resource.name);
+        addAllTextToMap();
         resource.locations.forEach((location) => {
           highlightArea(location.name);
         });
@@ -374,9 +412,9 @@ fetch("static/data/map-data.geojson")
           playAudio(resource.audio);
         }, 4500);
 
+        // Display descriptions first
         let descriptionCount = 0;
         infoInterval = setInterval(() => {
-          console.log(descriptionCount);
           if (descriptionCount < resource.description.length) {
             showExtraInfo(
               resource.description.slice(descriptionCount, descriptionCount + 2)
@@ -384,42 +422,36 @@ fetch("static/data/map-data.geojson")
             descriptionCount += 2;
           } else {
             clearInterval(infoInterval);
-          }
-        }, 6000);
-
-        let usesCount = 0;
-        usesInterval = setInterval(() => {
-          if (
-            usesCount < resource.uses.length &&
-            descriptionCount > resource.description.length
-          ) {
-            showExtraInfo(resource.uses.slice(usesCount, usesCount + 2));
-            usesCount += 2;
-          } else if (descriptionCount > resource.description.length) {
-            clearInterval(usesInterval);
-          }
-        }, 6000);
-
-        let economicsCount = 0;
-        economicsInterval = setInterval(() => {
-          if (
-            economicsCount < resource.uses.length &&
-            descriptionCount > resource.description.length &&
-            usesCount > resource.uses.length
-          ) {
-            showExtraInfo(
-              resource.economics.slice(economicsCount, economicsCount + 2)
-            );
-            economicsCount += 2;
-          } else if (
-            descriptionCount > resource.description.length &&
-            usesCount > resource.uses.length
-          ) {
-            clearInterval(economicsInterval);
+            // After descriptions, display uses
+            let usesCount = 0;
+            usesInterval = setInterval(() => {
+              if (usesCount < resource.uses.length) {
+                showExtraInfo(resource.uses.slice(usesCount, usesCount + 2));
+                usesCount += 2;
+              } else {
+                clearInterval(usesInterval);
+                // After uses, display economics
+                let economicsCount = 0;
+                economicsInterval = setInterval(() => {
+                  if (economicsCount < resource.economics.length) {
+                    showExtraInfo(
+                      resource.economics.slice(
+                        economicsCount,
+                        economicsCount + 2
+                      )
+                    );
+                    economicsCount += 2;
+                  } else {
+                    clearInterval(economicsInterval);
+                  }
+                }, 6000);
+              }
+            }, 6000);
           }
         }, 6000);
       } else {
         setTimeout(beginRotation, 2000);
+        removeAllTextFromMap();
         zoomOut();
         selectedLocations.forEach((location) => {
           deselectArea(location.name);

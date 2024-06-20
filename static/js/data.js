@@ -3,7 +3,7 @@ const enuguResources = [
     id: "0x03 0x6D 0x75 0xC5",
     image: "/static/assets/images/resources/glass-sand.png",
     audio: "/static/assets/audios/glass-sand.mp3",
-    name: "Sandstone",
+    name: "Glass Sand",
     locations: [
       { name: "Enugu South"},
       { name: "Nkanu West"},
@@ -13,7 +13,7 @@ const enuguResources = [
       "The primary use of glass sand is in the manufacture of glass. It is also used in construction, particularly for building and road construction. The main component of glass sand is silicon dioxide (SiO2).",
     ],
     uses: [
-      "Sandstone is used as a building material and for making aggregates",
+      "Glass Sand is used as a building material and for making aggregates",
       "It is also used in the production of glass and as a foundry sand.",
     ],
     economics: [],
@@ -189,21 +189,22 @@ const enuguResources = [
       "Gypsum plays a crucial role in several key industries, particularly construction and agriculture",
     ],
   },
-  // REMOVED UNTILL CONFIRMED
-  // {
-  //   id: "",
-  //   image: "/static/assets/images/resources/alum.png",
-  //   audio: "/static/assets/audios/alum.mp3",
-  //   name: "Alum",
-  //   locations: [{ name: "Nkanu West"}],
-  //   description: [
-  //     "Alum deposits in Enugu are found in the river beds of Nyaba river. Alum is used in water purification, as a mordant in dyeing and printing textiles, and in the tanning of leather. The chemical formula for alum is potassium aluminum sulfate (KAl(SO4)2·12H2O).",
-  //   ],
-  //   uses: [],
-  //   economics: [],
-  // },
+
   {
     id: "0x13 0x6F 0x5A 0xC5",
+    image: "/static/assets/images/resources/alum.png",
+    audio: "/static/assets/audios/alum.mp3",
+    name: "Alum",
+    locations: [{ name: "Nkanu West"}],
+    description: [
+      "Alum deposits in Enugu are found in the river beds of Nyaba river. Alum is used in water purification, as a mordant in dyeing and printing textiles, and in the tanning of leather.",
+      "The chemical formula for alum is potassium aluminum sulfate (KAl(SO4)2·12H2O).",
+    ],
+    uses: [],
+    economics: [],
+  },
+  {
+    id: "",
     image: "/static/assets/images/resources/lateritic-soil.png",
     audio: "/static/assets/audios/lateritic-soil.mp3",
     name: "Lateritic Soil",

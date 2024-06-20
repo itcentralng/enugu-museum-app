@@ -5,8 +5,8 @@ const enuguResources = [
     audio: "/static/assets/audios/glass-sand.mp3",
     name: "Sandstone",
     locations: [
-      { name: "Enugu South", description: "" },
-      { name: "Nkanu West", description: "" },
+      { name: "Enugu South"},
+      { name: "Nkanu West"},
     ],
     description: [
       "Enugu has a lot of sand deposits which run into millions of tonnes at Nyaba river, Ajali Sandstone, Owelli Sandstone, and Agbani Sandstone deposits. The glass sand is hosted in the river beds of Nyaba at Akwuke village.",
@@ -24,17 +24,16 @@ const enuguResources = [
     audio: "/static/assets/audios/coal.mp3",
     name: "Coal",
     locations: [
-      { name: "Enugu North", description: "" },
-      { name: "Ezeagu", description: "" },
-      { name: "Igbo Eze North", description: "" },
-      { name: "Nsukka", description: "" },
-      { name: "Oji River", description: "" },
-      { name: "Udi", description: "" },
+      { name: "Enugu North"},
+      { name: "Ezeagu"},
+      { name: "Igbo Eze North"},
+      { name: "Nsukka"},
+      { name: "Oji River"},
+      { name: "Udi"},
     ],
     description: [
-      "Coal was discovered in Enugu in 1909, marking a significant turning point in the state's economic history. This discovery was made by a British geological exploration team led by Albert Kitson, who played a crucial role in identifying Enugu as a rich coal-bearing area. Kitson's exploration efforts were part of a broader initiative by the British colonial administration to find valuable mineral resources that could support industrial activities in Nigeria and the British Empire.",
-      "Albert Ernest Kitson, a renowned British geologist and explorer, led the team that discovered coal in Enugu. Kitson's work in Enugu not only led to the identification of substantial coal deposits but also laid the foundation for the establishment of Nigeria's coal mining industry. His contributions were instrumental in transforming Enugu into a significant mining hub, earning it the nickname 'Coal City.",
-      "Enugu State has estimated reserve of coal in excess of 5 billion metric tons.",
+      "In 1909, coal was discovered in Enugu by a British team led by Albert Kitson, marking a key economic turning point and establishing Nigeria's coal mining industry.",
+      "Enugu State has over 5 billion metric tons of coal reserves. Kitson's discovery was part of a British effort to find valuable resources for Nigeria and the Empire."
     ],
     uses: [
       "Energy Production: Coal is a major source of fuel for thermal power stations. It is burned to produce steam, which drives turbines to generate electricity. This use is crucial for meeting the energy demands of industrial, commercial, and residential sectors.",
@@ -54,15 +53,13 @@ const enuguResources = [
     audio: "/static/assets/audios/oil-shale.mp3",
     name: "Oil Shale",
     locations: [
-      { name: "Aninri", description: "" },
-      { name: "Ezeagu", description: "" },
-      { name: "Nkanu East", description: "" },
+      { name: "Aninri"},
+      { name: "Ezeagu"},
+      { name: "Nkanu East"},
     ],
     description: [
-      "Shale is a fine-grained sedimentary rock composed of clay minerals and other fine particles. It is a significant mineral resource in Enugu State, Nigeria, contributing to various industries, particularly in construction and energy. This report provides a detailed overview of shale, including its discovery, locations, geological features, uses, and economic value to Enugu State.",
-      "Part of the larger Cretaceous geological formations within the Anambra Basin, the Enugu Shale Formation is characterized by extensive shale beds. These beds are occasionally interbedded with sandstones and siltstones, indicating a sedimentary environment that has undergone periodic changes in deposition conditions.",
-      "The shale layers often contain organic matter, which can be a source of hydrocarbons. The stratigraphy of the Enugu Shale Formation includes sequences of black shales, indicative of anoxic conditions during deposition",
-      "The primary minerals in shale are quartz, feldspar, and various clay minerals such as kaolinite, illite, and smectite. The presence of organic-rich layers makes certain shale formations potential sources of oil and gas",
+      "Shale, a key resource in Enugu State's construction and energy sectors, is found in the Enugu Shale Formation within the Anambra Basin.",
+      "Enugu's shale beds, rich in quartz, feldspar, and clay minerals, indicate anoxic deposition conditions and hold economic value."
     ],
     uses: [
       "Hydrocarbon Exploration: Organic-rich shales can generate oil and gas when subjected to heat and pressure over geological time scales. These shales, known as source rocks, are crucial in hydrocarbon exploration and production.",
@@ -87,8 +84,8 @@ const enuguResources = [
     audio: "/static/assets/audios/gas.mp3",
     name: "Gas",
     locations: [
-      { name: "Nsukka", description: "" },
-      { name: "Uzo-Uwani", description: "" },
+      { name: "Nsukka"},
+      { name: "Uzo-Uwani"},
     ],
     description: [
       "Natural gas reserves in Enugu are primarily located in Nsukka and Uzo-Uwani. Natural gas is used for electricity generation, heating, and as a feedstock for the production of chemicals and fertilizers.",
@@ -103,10 +100,10 @@ const enuguResources = [
     audio: "/static/assets/audios/ironstone.mp3",
     name: "Ironstone",
     locations: [
-      { name: "Awgu", description: "" },
-      { name: "Nkanu West", description: "" },
-      { name: "Nsukka", description: "" },
-      { name: "Udi", description: "" },
+      { name: "Awgu"},
+      { name: "Nkanu West"},
+      { name: "Nsukka"},
+      { name: "Udi"},
     ],
     description: [
       "Ironstone deposits in Enugu vary in oxidation states and are found in formations such as Ugwueme-Awgu, Nsude, and Ekulu river. The reserves are estimated to be millions of tonnes.",
@@ -124,11 +121,11 @@ const enuguResources = [
     audio: "/static/assets/audios/clay-mineral.mp3",
     name: "Clay Minerals",
     locations: [
-      { name: "Enugu East", description: "" },
-      { name: "Enugu South", description: "" },
-      { name: "Ezeagu", description: "" },
-      { name: "Isi-Uzo", description: "" },
-      { name: "Nkanu East", description: "" },
+      { name: "Enugu East"},
+      { name: "Enugu South"},
+      { name: "Ezeagu"},
+      { name: "Isi-Uzo"},
+      { name: "Nkanu East"},
     ],
     description: [
       "Clay is a fine-grained natural soil material containing clay minerals, known for its plasticity when wet and its ability to harden when dried or fired. In Enugu State, Nigeria, clay is a significant mineral resource contributing to the state's economy, especially in the construction and ceramics industries.",
@@ -153,14 +150,13 @@ const enuguResources = [
     audio: "/static/assets/audios/limestone.mp3",
     name: "Limestone",
     locations: [
-      { name: "Awgu", description: "" },
-      { name: "Enugu North", description: "" },
-      { name: "Udi", description: "" },
+      { name: "Awgu"},
+      { name: "Enugu North"},
+      { name: "Udi"},
     ],
     description: [
-      "Limestone deposits in Enugu State were identified through geological surveys conducted in the 1940s. These efforts by the Nigerian Geological Survey Agency were crucial in mapping out the mineral resources of the region and assessing their economic potential. The discovery significantly contributed to the industrial development of Enugu State, particularly in the cement industry.",
-      "The Nigerian Geological Survey Agency, established during the colonial era, conducted extensive surveys across Nigeria, leading to the discovery of limestone deposits in Enugu State. This discovery provided vital geological data that facilitated the exploitation and utilization of limestone resources in the region.",
-      "Enugu has estimated reserve of limestone in excess of 10 billion metric tons.",
+      "In the 1940s, geological surveys by the Nigerian Geological Survey Agency identified significant limestone deposits in Enugu State, boosting its cement industry.",
+      "Enugu has over 10 billion metric tons of limestone reserves, discovered through extensive surveys by the Nigerian Geological Survey Agency."
     ],
     uses: [
       "ment Manufacturing: Limestone is the primary raw material for producing cement. It is calcined in kilns to produce clinker, which is then ground to make cement, supporting infrastructure development.",
@@ -177,11 +173,10 @@ const enuguResources = [
     image: "/static/assets/images/resources/gypsum.png",
     audio: "/static/assets/audios/gypsum.mp3",
     name: "Gypsum",
-    locations: [{ name: "Uzo-Uwani", description: "" }],
+    locations: [{ name: "Uzo-Uwani"}],
     description: [
-      "Gypsum was identified through geological surveys conducted in Enugu State, Nigeria, in the 1960s. These surveys revealed significant deposits of the mineral in various locations, including Eha-amufu, Enugu Ngwo, and Ogbete. The discoveries were made by a team of geologists led by Dr. A. O. Onwualu, whose work in the region laid the foundation for the commercial exploitation of gypsum.",
-      "Gypsum forms in sedimentary environments, often as a result of the evaporation of seawater in ancient basins. It is commonly found in massive beds associated with other evaporite minerals such as halite and anhydrite.",
-      "The estimated reserve of Enugu gypsum is million metric tons.",
+      "In the 1960s, significant gypsum deposits were found in Enugu State by Dr. A. O. Onwualu's geological team, particularly in Eha-amufu, Enugu Ngwo, and Ogbete.",
+      "Enugu's gypsum reserves are estimated in millions of metric tons, formed in sedimentary environments from ancient seawater evaporation."
     ],
     uses: [
       " Cement Production: Gypsum is an essential component in the production of cement. It acts as a set retarder, controlling the rate at which cement hardens. This is crucial for ensuring that concrete remains workable long enough to be properly placed and finished. The addition of gypsum improves the quality of the final product by preventing flash setting and providing the necessary time for the concrete to cure properly.",
@@ -194,25 +189,27 @@ const enuguResources = [
       "Gypsum plays a crucial role in several key industries, particularly construction and agriculture",
     ],
   },
+  // REMOVED UNTILL CONFIRMED
+  // {
+  //   id: "",
+  //   image: "/static/assets/images/resources/alum.png",
+  //   audio: "/static/assets/audios/alum.mp3",
+  //   name: "Alum",
+  //   locations: [{ name: "Nkanu West"}],
+  //   description: [
+  //     "Alum deposits in Enugu are found in the river beds of Nyaba river. Alum is used in water purification, as a mordant in dyeing and printing textiles, and in the tanning of leather. The chemical formula for alum is potassium aluminum sulfate (KAl(SO4)2·12H2O).",
+  //   ],
+  //   uses: [],
+  //   economics: [],
+  // },
   {
     id: "0x13 0x6F 0x5A 0xC5",
-    image: "/static/assets/images/resources/alum.png",
-    audio: "/static/assets/audios/alum.mp3",
-    name: "Alum",
-    locations: [{ name: "Nkanu West", description: "" }],
-    description: [
-      "Alum deposits in Enugu are found in the river beds of Nyaba river. Alum is used in water purification, as a mordant in dyeing and printing textiles, and in the tanning of leather. The chemical formula for alum is potassium aluminum sulfate (KAl(SO4)2·12H2O).",
-    ],
-    uses: [],
-    economics: [],
-  },
-  {
-    id: "",
     image: "/static/assets/images/resources/lateritic-soil.png",
     audio: "/static/assets/audios/lateritic-soil.mp3",
     name: "Lateritic Soil",
-    locations: [{ name: "Awgu", description: "" }],
+    locations: [{ name: "Awgu"}],
     description: [
+      "Lateritic soils was discovered in Agbaneri Mmaku (Awgu LGA), used for road construction and as a building material",
       "Lateritic soils are highly weathered soils rich in iron and aluminum. They are formed in hot and wet tropical areas and are characterized by a reddish color due to the high iron oxide content.",
     ],
     uses: [
@@ -222,13 +219,14 @@ const enuguResources = [
     economics: [],
   },
   {
-    id: "",
+    id: "0x53 0xF0 0x26 0x1C",
     image: "/static/assets/images/resources/alluvium.jgp",
     audio: "/static/assets/audios/alluvium.mp3",
     name: "Alluvium",
-    locations: [{ name: "Awgu", description: "" }],
+    locations: [{ name: "Awgu"}],
     description: [
       "Alluvium consists of clay, silt, sand, and gravel deposited by running water, typically in riverbeds, floodplains, and deltas.",
+      "Alluvium is found in Agbudu (Awgu LGA), used for agricultural purposes and as a construction material."
     ],
     uses: [
       "fertile soil used for farming.",
@@ -237,17 +235,17 @@ const enuguResources = [
     economics: [],
   },
   {
-    id: "",
+    id: "0x83 0x70 0x17 0xAD",
     image: "/static/assets/images/resources/kaolin.png",
     audio: "/static/assets/audios/kaolin.mp3",
     name: "Kaolin",
     locations: [
-      { name: "Uzo-Uwani", description: "" },
-      { name: "Ezeagu", description: "" },
+      { name: "Uzo-Uwani"},
+      { name: "Ezeagu"},
     ],
     description: [
-      "Kaolin, also known as China clay, is a fine, white clay used in the production of ceramics, paper, rubber, paint, and many other products. It is highly valued for its purity, whiteness, and fine particle size. Recent mineral mapping and exploration activities in Enugu State have revealed significant deposits of kaolin in Nrobo, Uzo Uwani LGA, and Imezi Ani, Ezeagu LGA. This report provides a comprehensive overview of kaolin, including its discovery, geological features, uses, and economic value",
-      "The estimated reserve of Kaolin in Enugu State is 1 billion metric tons.",
+      "Kaolin, a fine white clay used in ceramics, paper, and more, is valued for its purity and whiteness. Significant deposits are found in Nrobo and Imezi Ani, Enugu State.",
+      "Enugu State's kaolin reserves are estimated at 1 billion metric tons. This report covers its discovery, geological features, uses, and economic value."
     ],
     uses: [
       " Porcelain and Fine China: Kaolin is essential in the production of high-quality porcelain and fine china due to its whiteness, plasticity, and firing properties.",
@@ -258,16 +256,17 @@ const enuguResources = [
     economics: [],
   },
   {
-    id: "",
+    id: "0xD3 0x07 0x45 0x1C",
     image: "/static/assets/images/resources/lead-zinc.jpeg",
     audio: "/static/assets/audios/lead-zinc.mp3",
     name: "Lead & Zinc",
     locations: [
-      { name: "Aninri", description: "" },
-      { name: "Awgu", description: "" },
+      { name: "Aninri"},
+      { name: "Awgu"},
     ],
     description: [
-      "Lead and zinc are critical base metals used in various industrial applications, including construction, manufacturing, and technology. Enugu State, Nigeria, has been rumored to have lead-zinc deposits for years. However, these deposits were confirmed during the ongoing Enugu Mineral Mapping and Exploration Project. This report provides a detailed overview of lead-zinc deposits in Enugu, including their discovery, locations, geological features, uses, and economic value.",
+      "Lead and zinc are critical base metals used in various industrial applications, including construction, manufacturing, and technology. Enugu State, Nigeria, has been rumored to have lead-zinc deposits for years.",
+      "The deposits were confirmed during the ongoing Enugu Mineral Mapping and Exploration Project providing a detailed overview of lead-zinc deposits in Enugu, including their discovery, locations, features, uses, and economic value.",
     ],
     uses: [
       " Lead: Batteries: The most significant use of lead is in lead-acid batteries, which are widely used in vehicles, backup power systems, and industrial applications. Radiation Shielding: Lead's high density and ability to block radiation make it essential for radiation shielding in medical, industrial, and nuclear applications. Ammunition: Lead is used in the production of bullets and other ammunition due to its density and malleabilit. Alloys: Lead is alloyed with other metals to enhance properties such as corrosion resistance and workability, used in applications like soldering and piping",
@@ -280,16 +279,17 @@ const enuguResources = [
     ],
   },
   {
-    id: "",
+    id: "0x33 0xC9 0x40 0x1C",
     image: "/static/assets/images/resources/granite.png",
     audio: "/static/assets/audios/granite.mp3",
     name: "Granite",
     locations: [
-      { name: "Aninri", description: "" },
-      { name: "Nkanu East", description: "" },
+      { name: "Aninri"},
+      { name: "Nkanu East"},
     ],
     description: [
-      "Granite is essential materials in building and infrastructure projects due to their strength, durability, and versatility. In Enugu State, ongoing mineral mapping projects have recently identified significant deposits of construction stones. This report provides a comprehensive overview of these discoveries, including their locations, geological features, uses, and economic value.",
+      "Granite is essential materials in building and infrastructure projects due to their strength, durability, and versatility. In Enugu State, ongoing mineral mapping projects have recently identified significant deposits of construction stones.",
+      "This report provides a comprehensive overview of these discoveries, including their locations, geological features, uses, and economic value.",
     ],
     uses: [
       " Building and Construction Materials: Construction stones are used to build foundations, walls, and pillars. Their strength and durability make them ideal for load-bearing structures. Stones like granite and limestone are used for facades and cladding of buildings, providing aesthetic appeal and weather resistance.",
@@ -305,13 +305,14 @@ const enuguResources = [
     ],
   },
   {
-    id: "",
+    id: "0x63 0x2D 0x95 0x2F",
     image: "/static/assets/images/resources/iron-ore.jpg",
     audio: "/static/assets/audios/iron-ore.mp3",
     name: "Iron Ore",
-    locations: [{ name: "Udi", description: "" }],
+    locations: [{ name: "Udi"}],
     description: [
-      "Iron ore is a crucial mineral resource in Enugu State, Nigeria. It is a primary raw material for the production of steel and other iron-based products, which are essential to various industries. This report provides a detailed overview of iron ore in Enugu State, including its discovery, locations, geological features, uses, and economic value.",
+      "Iron ore is a crucial mineral resource in Enugu State, Nigeria. It is a primary raw material for the production of steel and other iron-based products, which are essential to various industries.",
+      "This report provides a detailed overview of iron ore in Enugu State, including its discovery, locations, geological features, uses, and economic value.",
     ],
     uses: [
       " Steel Production Basic Ingredient: Iron ore is the main raw material for producing steel. Through processes like smelting in blast furnaces, iron ore is converted into molten iron, which is then used to manufacture steel. Steel produced from iron ore is essential for constructing buildings, bridges, railways, and other infrastructure projects, driving industrialization and urbanization",
@@ -327,14 +328,14 @@ const enuguResources = [
     ],
   },
   {
-    id: "",
+    id: "0xA3 0x0A 0x47 0x1C",
     image: "/static/assets/images/resources/clay.jpg",
     audio: "/static/assets/audios/clay.mp3",
     name: "Clay",
-    locations: [{ name: "Aninri", description: "" }],
+    locations: [{ name: "Aninri"}],
     description: [
-      "Clay is a fine-grained natural soil material containing clay minerals, known for its plasticity when wet and its ability to harden when dried or fired. In Enugu State, Nigeria, clay is a significant mineral resource contributing to the state's economy, especially in the construction and ceramics industries",
-      "Clay deposits in Enugu State are often found within the shale formations of the Anambra Basin, indicating a high degree of sedimentation from ancient lakes and rivers. These deposits are typically interbedded with sandstones and siltstones, which are common in the geological landscape of the region.",
+      "Clay, valued for its plasticity and hardness, is vital to Enugu State's construction and ceramics industries.",
+      "Enugu's clay deposits, found in the Anambra Basin's shale formations, indicate ancient sedimentation and are interbedded with sandstones and siltstones."
     ],
     uses: [
       " Production of Bricks and Tiles: Clay is extensively used in the production of bricks and tiles, which are essential materials for building and construction. These products are valued for their durability, thermal insulation, and aesthetic appeal.",

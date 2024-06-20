@@ -1,3 +1,21 @@
+const audioPlayer = document.getElementById("audioPlayer");
+const button = document.getElementById("button");
+
+const allowPlayAudio = () => {
+  button.remove();
+};
+
+const playAudio = (src) => {
+  audioPlayer.src = src;
+  audioPlayer.load();
+  audioPlayer.play();
+};
+
+const stopAudio = () => {
+  audioPlayer.pause();
+  audioPlayer.load();
+};
+
 fetch("static/data/map-data.geojson")
   .then((response) => response.json())
   .then((areas) => {
@@ -21,7 +39,7 @@ fetch("static/data/map-data.geojson")
       "Oil Shale": { x: 7.2, y: 6.25, zoom: 9 },
       Gas: { x: 6.9, y: 6.7, zoom: 9 },
       Ironstone: { x: 6.9, y: 6.5, zoom: 8.7 },
-      "Clay Minerals": { x: 7.2, y: 6.5, zoom: 9 },
+      "Clay Minerals": { x: 7, y: 6.5, zoom: 9 },
       Limestone: { x: 7.2, y: 6.3, zoom: 9 },
       Gypsum: { x: 6.8, y: 6.7, zoom: 9.2 },
       Alum: { x: 7.35, y: 6.3, zoom: 10.2 },
@@ -30,7 +48,7 @@ fetch("static/data/map-data.geojson")
       "Lead & Zinc": { x: 7.3, y: 6.13, zoom: 9.4 },
       Granite: { x: 7.4, y: 6.3, zoom: 9.1 },
       "Iron Ore": { x: 7.2, y: 6.45, zoom: 9.4 },
-      Clay: { x: 7.43, y: 6, zoom: 9.6 },
+      Clay: { x: 7.2, y: 6.2, zoom: 9.6 },
     };
 
     // Zoom to Resource
@@ -113,11 +131,74 @@ fetch("static/data/map-data.geojson")
       });
     });
 
+    // Extra info cards
+    const showExtraInfo = (resource) => {
+      const tl = gsap.timeline();
+
+      const info1 = document.getElementById("info-1");
+      info1.innerHTML = `<div class="content"><p>${resource.description[0]}</p></div>`;
+      tl.fromTo(info1, { opacity: 0 }, { opacity: 1 });
+
+      if (resource.description[1]) {
+        const info2 = document.getElementById("info-2");
+        info2.innerHTML = `<div class="content"><p>${resource.description[1]}</p></div>`;
+        tl.fromTo(info2, { opacity: 0 }, { opacity: 1 });
+      }
+    };
+
+    const hideExtraInfo = () => {
+      const tl = gsap.timeline();
+
+      Array.from(document.body.querySelectorAll(".info_card")).forEach((card) =>
+        tl.to(card, { opacity: 0, duration: 0.2 })
+      );
+    };
+
+    // Show side bar
+    const revealSidebar = (resource) => {
+      const tl = gsap.timeline();
+      sidebar.innerHTML = `<div class="content">
+        <h1>${resource.name}</h1>
+        <p>${resource.name}</p>
+      </div>`;
+      tl.to(sidebar, {
+        x: 0,
+        delay: 0.5,
+        duration: 0.3,
+      });
+      tl.to(sidebar, {
+        x: "-100%",
+        delay: 3,
+      });
+    };
+
+    const hideSideBar = () => {
+      gsap.to(sidebar, {
+        x: "-100%",
+      });
+    };
+
+    // Hide/Show COAs/badges and App Banner/Title
+    const badge = document.getElementById("banner");
+    const coa1 = document.getElementById("coa1");
+    const coa2 = document.getElementById("coa2");
+    const hideBadgesandTitle = () => {
+      badge.style.opacity = 0;
+      coa1.style.opacity = 0;
+      coa2.style.opacity = 0;
+    };
+    const showBadgesandTitle = () => {
+      badge.style.opacity = 1;
+      coa1.style.opacity = 1;
+      coa2.style.opacity = 1;
+    };
+
     // SOCKET IO CONNECTION - HANDLE RESOURCE PICKUP
     let RFID = "";
     let selectedLocations = [];
     var socket = io.connect("http://127.0.0.1:5550");
     socket.on("rfid_status", function (data) {
+      let timeout;
       if (data.status != "removed") {
         RFID = data.status;
         const resource = enuguResources.find((resource) => resource.id == RFID);
@@ -126,11 +207,22 @@ fetch("static/data/map-data.geojson")
         resource.locations.forEach((location) => {
           highlightArea(location.name);
         });
+        revealSidebar(resource);
+        hideBadgesandTitle();
+        timeout = setTimeout(() => {
+          playAudio(resource.audio);
+          showExtraInfo(resource);
+        }, 4500);
       } else {
         selectedLocations.forEach((location) => {
           zoomOut();
           deselectArea(location.name);
         });
+        hideSideBar();
+        showBadgesandTitle();
+        clearTimeout(timeout);
+        hideExtraInfo();
+        stopAudio();
       }
     });
   });

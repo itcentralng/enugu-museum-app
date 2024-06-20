@@ -28,9 +28,9 @@ fetch("static/data/map-data.geojson")
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
       style: "mapbox://styles/mapbox/outdoors-v12", // style URL
       center: [7.46275, 6.499083], // starting position
-      zoom: 2.5, // starting zoom
+      zoom: 1.5, // starting zoom
       attributionControl: false,
-      pitch: 45,
+      pitch: 20,
     });
 
     // Resource coords & zoom levels
@@ -70,10 +70,10 @@ fetch("static/data/map-data.geojson")
 
     const zoomOut = () => {
       // map.setZoom(2.5);
-      map.zoomTo(2.5, {
+      map.zoomTo(1.5, {
         duration: 2000,
         center: [7.46275, 6.499083],
-        pitch: 45,
+        pitch: 20,
       });
     };
 
@@ -295,10 +295,7 @@ fetch("static/data/map-data.geojson")
       if (data.status != "removed") {
         RFID = data.status;
         stopRotation();
-        // const resource = enuguResources.find((resource) => resource.id == RFID);
-        const resource = enuguResources.find(
-          (resource) => resource.name == "Limestone"
-        );
+        const resource = enuguResources.find((resource) => resource.id == RFID);
         selectedLocations = resource.locations;
         zoomToResource(resource.name);
         resource.locations.forEach((location) => {

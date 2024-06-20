@@ -79,7 +79,7 @@ const enuguResources = [
     ],
   },
   {
-    id: "0xA3 0x8A 0x1E 0x14",
+    id: "0x63 0x2D 0x95 0x2F",
     image: "/static/assets/images/resources/gas.jpg",
     audio: "/static/assets/audios/gas.mp3",
     name: "Gas",
@@ -306,7 +306,7 @@ const enuguResources = [
     ],
   },
   {
-    id: "0x63 0x2D 0x95 0x2F",
+    id: "0xA3 0x8A 0x1E 0x14",
     image: "/static/assets/images/resources/iron-ore.jpg",
     audio: "/static/assets/audios/iron-ore.mp3",
     name: "Iron Ore",

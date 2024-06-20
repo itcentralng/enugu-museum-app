@@ -120,7 +120,7 @@ const enuguResources = [
   },
   {
     id: "0x73 0xC4 0xE4 0x0C",
-    image: "/static/assets/images/resources/clay minerals.png",
+    image: "/static/assets/images/resources/clay-minerals.png",
     audio: "/static/assets/audios/clay-mineral.mp3",
     name: "Clay Minerals",
     locations: [

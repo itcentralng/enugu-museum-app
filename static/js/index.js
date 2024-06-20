@@ -127,6 +127,46 @@ fetch("static/data/map-data.geojson")
     };
 
     // Setup map Sources for each area
+    function getCentroid(geometry) {
+      let centroid = [0, 0];
+      let coordinates = geometry.coordinates[0];
+      let numPoints = coordinates.length;
+
+      coordinates.forEach((coord) => {
+        centroid[0] += coord[0];
+        centroid[1] += coord[1];
+      });
+
+      centroid[0] /= numPoints;
+      centroid[1] /= numPoints;
+
+      return centroid;
+    }
+
+    // globe Rotation
+    let animationId;
+    const startRotation = (timestamp) => {
+      // clamp the rotation between 0 -360 degrees
+      // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
+      map.rotateTo((timestamp / 100) % 360, { duration: 0 });
+      // Request the next frame of the animation.
+      animationId = requestAnimationFrame(startRotation);
+    };
+
+    const beginRotation = () => {
+      if (!animationId) {
+        // Prevent multiple animations
+        animationId = requestAnimationFrame(startRotation);
+      }
+    };
+
+    const stopRotation = () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null; // Reset the animation ID
+      }
+    };
+
     map.on("load", () => {
       beginRotation();
       areas.features.forEach((area) => {
@@ -166,7 +206,9 @@ fetch("static/data/map-data.geojson")
     // Show side bar
     const revealSidebar = (resource) => {
       const tl = gsap.timeline();
-      sidebar.innerHTML = `<div class="content">
+      sidebar.innerHTML = `
+      <img src="${resource.image}" alt="" />
+      <div class="content">
         <h1>${resource.name}</h1>
         <p>${resource.name}</p>
       </div>`;
@@ -209,6 +251,7 @@ fetch("static/data/map-data.geojson")
     socket.on("rfid_status", function (data) {
       let timeout;
       if (data.status != "removed") {
+        stopRotation();
         RFID = data.status;
         const resource = enuguResources.find((resource) => resource.id == RFID);
         selectedLocations = resource.locations;
@@ -223,6 +266,8 @@ fetch("static/data/map-data.geojson")
           showExtraInfo(resource);
         }, 4500);
       } else {
+        setTimeout(beginRotation, 2000);
+        zoomOut();
         selectedLocations.forEach((location) => {
           zoomOut();
           deselectArea(location.name);

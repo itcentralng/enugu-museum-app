@@ -79,7 +79,7 @@ const enuguResources = [
     ],
   },
   {
-    id: "0xD3 0x4F 0xE6 0x0C",
+    id: "0xA3 0x8A 0x1E 0x14",
     image: "/static/assets/images/resources/gas.jpg",
     audio: "/static/assets/audios/gas.mp3",
     name: "Gas",
@@ -116,7 +116,7 @@ const enuguResources = [
     economics: [],
   },
   {
-    id: "0x73 0xC4 0xE4 0x0C",
+    id: "0x73 0x85 0xD2 0x0C",
     image: "/static/assets/images/resources/clay minerals.png",
     audio: "/static/assets/audios/clay-mineral.mp3",
     name: "Clay Minerals",
@@ -128,8 +128,8 @@ const enuguResources = [
       { name: "Nkanu East"},
     ],
     description: [
-      "Clay is a fine-grained natural soil material containing clay minerals, known for its plasticity when wet and its ability to harden when dried or fired. In Enugu State, Nigeria, clay is a significant mineral resource contributing to the state's economy, especially in the construction and ceramics industries.",
-      "Clay deposits in Enugu State are often found within the shale formations of the Anambra Basin, indicating a high degree of sedimentation from ancient lakes and rivers. These deposits are typically interbedded with sandstones and siltstones, which are common in the geological landscape of the region.",
+      "Clay, known for its plasticity and hardening properties, is vital to Enugu State's construction and ceramics industries.",
+      "Enugu's clay deposits, found in the Anambra Basin's shale formations, show sedimentation from ancient lakes and rivers, interbedded with sandstones and siltstones."
     ],
     uses: [
       " Production of Bricks and Tiles: Clay is extensively used in the production of bricks and tiles, which are essential materials for building and construction. These products are valued for their durability, thermal insulation, and aesthetic appeal.",
@@ -220,7 +220,7 @@ const enuguResources = [
     economics: [],
   },
   {
-    id: "0x53 0xF0 0x26 0x1C",
+    id: "0xD3 0x4F 0xE6 0x0C",
     image: "/static/assets/images/resources/alluvium.jgp",
     audio: "/static/assets/audios/alluvium.mp3",
     name: "Alluvium",
@@ -280,7 +280,7 @@ const enuguResources = [
     ],
   },
   {
-    id: "0x33 0xC9 0x40 0x1C",
+    id: "0x73 0xC4 0xE4 0x0C",
     image: "/static/assets/images/resources/granite.png",
     audio: "/static/assets/audios/granite.mp3",
     name: "Granite",

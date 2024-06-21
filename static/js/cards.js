@@ -1,4 +1,12 @@
+let deck = Array.from(document.querySelectorAll("#deck"));
 let cards = Array.from(document.querySelectorAll(".card"));
+
+const hideCards = () => {
+  gsap.to(deck, { x: "-100%", opacity: 0 });
+};
+const showCards = () => {
+  gsap.to(deck, { x: "0%", opacity: 1 });
+};
 
 const shuffleCards = (cards) => {
   const cardTl = gsap.timeline();
@@ -38,3 +46,5 @@ setInterval(() => {
   // Shuffle after every 5secs
   cards = shuffleCards(cards);
 }, 5000);
+
+export { hideCards, showCards };

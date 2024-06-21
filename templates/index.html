@@ -16,7 +16,7 @@
   </head>
   <body>
     <div id="map"></div>
-    <button id="button" onclick="allowPlayAudio()">Click to Allow Audio</button>
+    <button id="button" onclick="this.remove()">Click to Allow Audio</button>
     <audio id="audioPlayer" src="" hidden></audio>
 
     <div id="banner">
@@ -81,8 +81,10 @@
     <article id="info-1" class="info_card"></article>
     <article id="info-2" class="info_card"></article>
 
-    <script defer src="/static/js/data.js"></script>
-    <script defer src="/static/js/index.js"></script>
-    <script defer src="/static/js/cards.js"></script>
+    <script type="module" src="/static/js/initGlobe.js"></script>
+    <script type="module" src="/static/js/map.js"></script>
+    <script src="/static/js/data.js"></script>
+    <script type="module" src="/static/js/resource.js"></script>
+    <script src="/static/js/cards.js"></script>
   </body>
 </html>

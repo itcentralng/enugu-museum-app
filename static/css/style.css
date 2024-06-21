@@ -109,27 +109,44 @@ img {
 
 /* Deck of cards */
 #deck {
-  align-items: center;
-  display: grid;
   height: 100%;
-  left: 10vw;
+  left: 2vw;
   position: fixed;
-  width: 20vw;
+  top: 2vw;
+  width: 18vw;
   z-index: 1;
 }
 
 .card {
   border-radius: var(--border-radius);
   background-color: #fff;
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
   height: 400px;
   padding: 1rem;
   position: absolute;
+  transition: 0.5s;
+  transform-origin: bottom center;
   width: 100%;
 }
 
+.card1 {
+  z-index: 4;
+}
+.card2 {
+  transform: rotate(5deg);
+  z-index: 3;
+}
+.card3 {
+  transform: rotate(10deg);
+  z-index: 2;
+}
+
 .card_content {
+  align-content: center;
   border-radius: inherit;
   border: 2px solid #000;
+  display: grid;
+  gap: 0.8rem;
   height: 100%;
   padding: 1rem;
   width: 100%;

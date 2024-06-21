@@ -129,18 +129,6 @@ img {
   width: 100%;
 }
 
-.card1 {
-  z-index: 4;
-}
-.card2 {
-  transform: rotate(5deg);
-  z-index: 3;
-}
-.card3 {
-  transform: rotate(10deg);
-  z-index: 2;
-}
-
 .card_content {
   align-content: center;
   border-radius: inherit;

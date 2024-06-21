@@ -1,6 +1,14 @@
 let deck = Array.from(document.querySelectorAll("#deck"));
 let cards = Array.from(document.querySelectorAll(".card"));
 
+const initCardPositions = () => {
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].style.zIndex = cards.length - i;
+    cards[i].style.transform = `rotate(${i * 5}deg)`;
+  }
+};
+initCardPositions();
+
 const hideCards = () => {
   gsap.to(deck, { x: "-100%", opacity: 0 });
 };

@@ -72,17 +72,6 @@ map.on("moveend", () => {
   spinGlobe();
 });
 
-// document.getElementById("btn-spin").addEventListener("click", (e) => {
-//   spinEnabled = !spinEnabled;
-//   if (spinEnabled) {
-//     spinGlobe();
-//     e.target.innerHTML = "Pause rotation";
-//   } else {
-//     map.stop(); // Immediately end ongoing animation
-//     e.target.innerHTML = "Start rotation";
-//   }
-// });
-
 spinGlobe();
 
 export { map, spinGlobe };

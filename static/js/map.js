@@ -236,21 +236,21 @@ function removeAllTextFromMap() {
 }
 
 map.on("load", () => {
-  if (map.getLayer("background")) {
-    map.setPaintProperty(
-      "background",
-      "background-color",
-      "rgba(200, 125, 50, 0.3)"
-    );
-  } else {
-    map.addLayer({
-      id: "background",
-      type: "background",
-      paint: {
-        "background-color": "rgba(200, 125, 50, 0.3)",
-      },
-    });
-  }
+  // if (map.getLayer("background")) {
+  //   map.setPaintProperty(
+  //     "background",
+  //     "background-color",
+  //     "rgba(200, 125, 50, 0.3)"
+  //   );
+  // } else {
+  //   map.addLayer({
+  //     id: "background",
+  //     type: "background",
+  //     paint: {
+  //       "background-color": "rgba(200, 125, 50, 0.3)",
+  //     },
+  //   });
+  // }
   areas.features.forEach((area) => {
     const ifExists = map.getSource(area.properties.shape2);
     if (!ifExists) {

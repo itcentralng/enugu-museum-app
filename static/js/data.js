@@ -53,7 +53,8 @@ const enuguResources = [
     uses: [
       "Energy Production: Coal is a major source of fuel for thermal power stations. It is burned to produce steam, which drives turbines to generate electricity.",
       "This use is crucial for meeting the energy demands of industrial, commercial, and residential sectors.",
-      "Steel Manufacturing: Coal is an essential component in steel production. It is used in blast furnaces to produce coke, which serves as both a fuel and a reducing agent in the smelting of iron ore to produce steel.",
+      "Steel Manufacturing: Coal is an essential component in steel production. ",
+      "It is used in blast furnaces to produce coke, which serves as both a fuel and a reducing agent in the smelting of iron ore to produce steel.",
       "This process is fundamental to the construction and manufacturing industries.",
       "Cement Production: In the cement industry, coal is used as a fuel source in kilns to produce the high temperatures needed to convert raw materials into clinker, the main ingredient in cement.",
       "This application supports the construction sector by providing a key building material.",
@@ -461,7 +462,8 @@ const enuguResources = [
       "This report provides a detailed overview of iron ore in Enugu State, including its discovery, locations, geological features, uses, and economic value.",
     ],
     uses: [
-      " Steel Production Basic Ingredient: Iron ore is the main raw material for producing steel. Through processes like smelting in blast furnaces, iron ore is converted into molten iron, which is then used to manufacture steel. ",
+      " Steel Production Basic Ingredient: Iron ore is the main raw material for producing steel. ",
+      "Through processes like smelting in blast furnaces, iron ore is converted into molten iron, which is then used to manufacture steel. ",
       "Steel produced from iron ore is essential for constructing buildings, bridges, railways, and other infrastructure projects, driving industrialization and urbanization",
       " Manufacture of Iron and Steel Products Industrial Components: Iron ore is used to produce various iron and steel products, including machinery, tools, appliances, and vehicles. ",
       "These products are crucial for multiple sectors such as manufacturing, transportation, and agriculture. ",
@@ -548,4 +550,4 @@ const joinTexts = (resource) => {
 
 const welcomeTexts = joinTexts(getRandomResource());
 
-export { enuguResources, welcomeTexts };
+export { enuguResources, welcomeTexts, joinTexts };

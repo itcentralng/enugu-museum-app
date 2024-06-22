@@ -1,5 +1,5 @@
 import { map, spinGlobe } from "./initGlobe.js";
-import { showCards, hideCards } from "./cards.js";
+import { showCards, hideCards, addCardsToScreen } from "./cards.js";
 import {
   zoomToResource,
   zoomOut,
@@ -8,6 +8,7 @@ import {
   highlightArea,
   deselectArea,
 } from "./map.js";
+import { enuguResources, joinTexts } from "./data.js";
 
 const audioPlayer = document.getElementById("audioPlayer");
 
@@ -20,32 +21,6 @@ const playAudio = (src) => {
 const stopAudio = () => {
   audioPlayer.pause();
   audioPlayer.load();
-};
-
-// Extra info cards
-const showExtraInfo = (descriptions) => {
-  const tl = gsap.timeline();
-
-  const info1 = document.getElementById("info-1");
-  info1.innerHTML = `<div class="content"><p>${descriptions[0]}</p></div>`;
-  tl.fromTo(info1, { opacity: 0 }, { opacity: 1 });
-
-  if (descriptions[1]) {
-    const info2 = document.getElementById("info-2");
-    info2.innerHTML = `<div class="content"><p>${descriptions[1]}</p></div>`;
-    tl.fromTo(info2, { opacity: 0 }, { opacity: 1 });
-  } else {
-    const info2 = document.getElementById("info-2");
-    tl.to(info2, { opacity: 0, duration: 0.2 });
-  }
-};
-
-const hideExtraInfo = () => {
-  const tl2 = gsap.timeline();
-
-  Array.from(document.body.querySelectorAll(".info_card")).forEach((card) =>
-    tl2.to(card, { opacity: 0, duration: 0.2 })
-  );
 };
 
 // Show side bar
@@ -97,12 +72,15 @@ let infoInterval;
 let usesInterval;
 let economicsInterval;
 let audioTimeout;
+let deck = document.querySelector("#deck");
+let resourceDeck = document.querySelector("#resource_deck");
 
 socket.on("rfid_status", function (data) {
   if (data.status != "removed") {
     RFID = data.status;
     map.stop();
     const resource = enuguResources.find((resource) => resource.id == RFID);
+    addCardsToScreen(resourceDeck, joinTexts(resource), true);
     selectedLocations = resource.locations;
     zoomToResource(resource.name);
     addAllTextToMap();
@@ -111,45 +89,11 @@ socket.on("rfid_status", function (data) {
     });
     revealSidebar(resource);
     hideBadgesandTitle();
-    hideCards();
+    hideCards(deck);
+    showCards(resourceDeck, 5, "45%");
     audioTimeout = setTimeout(() => {
       playAudio(resource.audio);
     }, 4500);
-
-    // Display descriptions first
-    let descriptionCount = 0;
-    infoInterval = setInterval(() => {
-      if (descriptionCount < resource.description.length) {
-        showExtraInfo(
-          resource.description.slice(descriptionCount, descriptionCount + 2)
-        );
-        descriptionCount += 2;
-      } else {
-        clearInterval(infoInterval);
-        // After descriptions, display uses
-        let usesCount = 0;
-        usesInterval = setInterval(() => {
-          if (usesCount < resource.uses.length) {
-            showExtraInfo(resource.uses.slice(usesCount, usesCount + 2));
-            usesCount += 2;
-          } else {
-            clearInterval(usesInterval);
-            // After uses, display economics
-            let economicsCount = 0;
-            economicsInterval = setInterval(() => {
-              if (economicsCount < resource.economics.length) {
-                showExtraInfo(
-                  resource.economics.slice(economicsCount, economicsCount + 2)
-                );
-                economicsCount += 2;
-              } else {
-                clearInterval(economicsInterval);
-              }
-            }, 6000);
-          }
-        }, 6000);
-      }
-    }, 6000);
   } else {
     setTimeout(spinGlobe(), 2000);
     removeAllTextFromMap();
@@ -163,8 +107,8 @@ socket.on("rfid_status", function (data) {
     clearInterval(usesInterval);
     clearInterval(economicsInterval);
     clearTimeout(audioTimeout);
-    hideExtraInfo();
     stopAudio();
-    showCards();
+    hideCards(resourceDeck);
+    showCards(deck, 5);
   }
 });

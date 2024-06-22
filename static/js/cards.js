@@ -1,6 +1,23 @@
-let deck = Array.from(document.querySelectorAll("#deck"));
-let cards = Array.from(document.querySelectorAll(".card"));
+import { welcomeTexts } from "./data.js";
+let deck = document.querySelector("#deck");
 
+const addCardsToScreen = (texts) => {
+  texts.forEach((text, i) => {
+    const html = `
+      <div class="card card${i + 1}">
+        <div class="card_content">
+          <h2>${i + 1}</h2>
+          <p>${text[0]}</p>
+          <img src="/static/assets/images/divider.png" alt="" />
+          <p>${text[1] ? text[1] : ""}</p>
+        </div>
+      </div>`;
+    deck.insertAdjacentHTML("beforeend", html);
+  });
+};
+addCardsToScreen(welcomeTexts);
+
+let cards = Array.from(document.querySelectorAll(".card"));
 const initCardPositions = () => {
   for (let i = 0; i < cards.length; i++) {
     cards[i].style.zIndex = cards.length - i;
@@ -44,7 +61,7 @@ const shuffleCards = (cards) => {
       x: "0%",
       rotate: `${i * 5}deg`,
       zIndex: newOrder.length - i,
-      duration: 0.2,
+      duration: 0.2 / newOrder.length,
     });
   }
   return newOrder;
@@ -55,4 +72,4 @@ setInterval(() => {
   cards = shuffleCards(cards);
 }, 5000);
 
-export { hideCards, showCards };
+export { hideCards, showCards, addCardsToScreen };

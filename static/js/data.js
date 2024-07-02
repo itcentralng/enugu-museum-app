@@ -4,6 +4,7 @@ const enuguResources = [
     image: "/static/assets/images/resources/glass-sand.png",
     audio: "/static/assets/audios/glass-sand.mp3",
     name: "Sandstone",
+    name: "Sandstone",
     locations: [
       { name: "Enugu South", description: "" },
       { name: "Nkanu West", description: "" },

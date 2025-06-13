@@ -14,7 +14,7 @@
 
 html,
 body {
-  font-family: "Satisfy", cursive;
+  font-family: "Times New Roman";
   font-weight: 400;
   font-style: normal;
   height: 100%;
@@ -167,7 +167,7 @@ img {
 #sidebar .content {
   align-items: start;
   flex-direction: column;
-  font-size: 2vw;
+  font-size: 10vw;
   gap: 1rem;
   height: calc(var(--width) - var(--padding) * 2);
   justify-content: end;

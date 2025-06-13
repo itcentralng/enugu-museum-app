@@ -14,7 +14,7 @@ app.config["SECRET_KEY"] = "secret!"
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Configure the serial port
-ser = serial.Serial(port=os.getenv("SERIAL_PORT"), baudrate=9600)
+# ser = serial.Serial(port=os.getenv("SERIAL_PORT"), baudrate=9600)
 
 
 def read_from_serial():
@@ -39,8 +39,8 @@ def main():
 
 if __name__ == "__main__":
     # Run the serial reading in a separate thread
-    serial_thread = threading.Thread(target=read_from_serial)
-    serial_thread.daemon = True
-    serial_thread.start()
+    # serial_thread = threading.Thread(target=read_from_serial)
+    # serial_thread.daemon = True
+    # serial_thread.start()
     # Start the Flask app with WebSocket support
     socketio.run(app, host="0.0.0.0", port=5550)

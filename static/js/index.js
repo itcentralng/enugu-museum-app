@@ -365,6 +365,8 @@ fetch("static/data/map-data.geojson")
       });
     };
 
+    revealSidebar(enuguResources[4])
+
     const hideSideBar = () => {
       gsap.to(sidebar, {
         x: "-100%",
